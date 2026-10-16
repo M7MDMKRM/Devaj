@@ -5,7 +5,6 @@ import { ArrowUpRight, CheckCircle2, Film, Clapperboard, Camera, Radio, X, Messa
 
 export default function StrategicOfferingsSection() {
   const [selectedOffering, setSelectedOffering] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   const offerings = [
     {
@@ -145,18 +144,15 @@ export default function StrategicOfferingsSection() {
         {/* =================================================================== */}
         {/* 2. THE FOUR CARDS GRID WITH DYNAMIC LIFT EFFECTS (Monks Exact Layout) */}
         {/* =================================================================== */}
-        <div className="offerings-grid">
+        <div className="offerings-grid reveal-on-scroll">
           {offerings.map((item, idx) => {
-            const isHovered = hoveredCard === item.id;
             const isSelected = selectedOffering?.id === item.id;
 
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedOffering(item)}
-                onMouseEnter={() => setHoveredCard(item.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className={`offering-card card-col-${idx + 1} ${isHovered ? "hovered" : ""} ${isSelected ? "selected" : ""} reveal-on-scroll delay-${(idx + 1) * 100}`}
+                className={`offering-card card-col-${idx + 1} ${isSelected ? "selected" : ""}`}
               >
                 {/* Top-Right Number Overlapping Image (01, 02, 03, 04) */}
                 <div className="card-number-badge">
@@ -307,6 +303,7 @@ export default function StrategicOfferingsSection() {
           flex-direction: column;
           cursor: pointer;
           user-select: none;
+          opacity: 1 !important;
           transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -320,6 +317,7 @@ export default function StrategicOfferingsSection() {
         .offering-card:hover,
         .offering-card.hovered {
           transform: translateY(-16px);
+          opacity: 1 !important;
         }
 
         .offering-card.selected {

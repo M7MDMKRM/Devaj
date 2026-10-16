@@ -252,3 +252,14 @@ body {
 .delay-400 { transition-delay: 0.42s; }
 .delay-500 { transition-delay: 0.5s; }
 
+/* Interactive cards must never be hidden on hover or re-render */
+.offering-card,
+.brand-cinema-card {
+  opacity: 1 !important;
+}
+
+.offering-card:hover,
+.brand-cinema-card:hover {
+  opacity: 1 !important;
+}
+

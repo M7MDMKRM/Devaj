@@ -17,7 +17,6 @@ import {
 export default function ClientsPartnersSection() {
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all"); // 'all' | 'productions' | 'films'
-  const [hoveredBrand, setHoveredBrand] = useState(null);
   const videoRefs = useRef({});
 
   // Close modal on ESC key and lock body scroll
@@ -193,9 +192,8 @@ export default function ClientsPartnersSection() {
     return b.houseId === activeFilter;
   });
 
-  // Handle Video Hover Physics
+  // Handle Video Hover Physics (Pure direct DOM - zero re-render lag)
   const handleMouseEnterCard = (brandId) => {
-    setHoveredBrand(brandId);
     const video = videoRefs.current[brandId];
     if (video) {
       video.currentTime = 0;
@@ -207,7 +205,6 @@ export default function ClientsPartnersSection() {
   };
 
   const handleMouseLeaveCard = (brandId) => {
-    setHoveredBrand(null);
     const video = videoRefs.current[brandId];
     if (video) {
       video.pause();
@@ -318,19 +315,15 @@ export default function ClientsPartnersSection() {
         {/* =================================================================== */}
         {/* 2. LOGO-CENTERED CARDS GRID WITH VIDEO ON HOVER                     */}
         {/* =================================================================== */}
-        <div className="brands-showcase-grid">
-          {displayedBrands.map((brand, idx) => {
-            const isHovered = hoveredBrand === brand.id;
-
+        <div className="brands-showcase-grid reveal-on-scroll">
+          {displayedBrands.map((brand) => {
             return (
               <div
                 key={brand.id}
                 onClick={() => setSelectedBrand(brand)}
                 onMouseEnter={() => handleMouseEnterCard(brand.id)}
                 onMouseLeave={() => handleMouseLeaveCard(brand.id)}
-                className={`brand-cinema-card reveal-on-scroll delay-${(idx + 1) * 100} ${
-                  isHovered ? "is-hovered" : ""
-                }`}
+                className="brand-cinema-card"
                 role="button"
                 tabIndex={0}
                 aria-label={`Open project details for ${brand.name}`}
@@ -690,15 +683,17 @@ export default function ClientsPartnersSection() {
           cursor: pointer;
           display: flex;
           flex-direction: column;
-          justifyContent: space-between;
+          justify-content: space-between;
           padding: 24px 26px;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          opacity: 1 !important;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .brand-cinema-card:hover {
           transform: translateY(-8px);
           border-color: rgba(230, 57, 70, 0.65);
           box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(230, 57, 70, 0.2);
+          opacity: 1 !important;
         }
 
         /* Video on Hover */
@@ -754,10 +749,11 @@ export default function ClientsPartnersSection() {
         /* Card Top Bar */
         .card-top-bar {
           position: relative;
-          z-index: 3;
+          z-index: 5;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          opacity: 1 !important;
         }
 
         .card-badge-label {
@@ -777,19 +773,21 @@ export default function ClientsPartnersSection() {
           box-shadow: 0 0 10px #E63946;
         }
 
-        /* Card Center Logo Box */
+        /* Card Center Logo Box - Always permanently visible on top of video */
         .card-center-logo-box {
           position: relative;
-          z-index: 3;
+          z-index: 5;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          opacity: 1 !important;
           transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .brand-cinema-card:hover .card-center-logo-box {
           transform: scale(1.06);
+          opacity: 1 !important;
         }
 
         /* Logo Typographic Wrappers */
@@ -932,10 +930,11 @@ export default function ClientsPartnersSection() {
         /* Card Bottom Bar (OPEN PROJECT +) */
         .card-bottom-bar {
           position: relative;
-          z-index: 3;
+          z-index: 5;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          opacity: 1 !important;
         }
 
         .open-project-btn {

@@ -13,7 +13,7 @@ import ClientsPartnersSection from "@/components/ClientsPartnersSection";
 export default function Home() {
   const [connectModalOpen, setConnectModalOpen] = useState(false);
 
-  // Global Scroll Reveal Observer: reveals and dissolves elements as user scrolls
+  // Global Scroll Reveal Observer: reveals elements once as user scrolls smoothly
   useEffect(() => {
     const revealElements = document.querySelectorAll(
       ".reveal-on-scroll, .reveal-from-left, .reveal-from-right, .reveal-scale"
@@ -24,14 +24,13 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-revealed");
-          } else {
-            entry.target.classList.remove("is-revealed");
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -20px 0px",
       }
     );
 
