@@ -86,12 +86,7 @@ export default function StrategicOfferingsSection() {
         color: "#151515",
         position: "relative",
         zIndex: 10,
-        marginTop: "0",
-        borderTopLeftRadius: "52px",
-        borderTopRightRadius: "52px",
-        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55), 0 -12px 30px rgba(0, 0, 0, 0.35)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.6)",
-        padding: "120px 0 110px",
+        padding: "40px 0 110px",
         overflow: "hidden",
       }}
     >

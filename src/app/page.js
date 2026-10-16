@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import CinematicHero from "@/components/CinematicHero";
+import AboutGroupSection from "@/components/AboutGroupSection";
 import TwoHousesSection from "@/components/TwoHousesSection";
 import StrategicOfferingsSection from "@/components/StrategicOfferingsSection";
 import SectorsSection from "@/components/SectorsSection";
@@ -35,7 +36,10 @@ export default function Home() {
       {/* 2. Cinematic Hero Header */}
       <CinematicHero onConnectClick={handleConnectClick} />
 
-      {/* 3. Strategic Service Offerings (Monks-style 4-Card Grid with Lift Effects & Devaj Data) */}
+      {/* 3. Who We Are: Devaj Group Identity & Core Vision (Light Studio Theme) */}
+      <AboutGroupSection />
+
+      {/* 4. Strategic Service Offerings (Monks-style 4-Card Grid with Lift Effects & Devaj Data) */}
       <StrategicOfferingsSection />
 
       {/* 4. The Two Creative Houses: Devaj Production & Devaj Film */}
