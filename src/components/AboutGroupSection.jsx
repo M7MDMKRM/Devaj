@@ -17,7 +17,7 @@ export default function AboutGroupSection() {
         borderTopRightRadius: "52px",
         boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.45), 0 -12px 30px rgba(0, 0, 0, 0.25)",
         borderTop: "1px solid rgba(255, 255, 255, 0.6)",
-        padding: "125px 0 70px",
+        padding: "125px 0 120px",
         overflow: "hidden",
       }}
     >

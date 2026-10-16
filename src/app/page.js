@@ -64,25 +64,25 @@ export default function Home() {
       {/* 2. Cinematic Hero Header */}
       <CinematicHero onConnectClick={handleConnectClick} />
 
-      {/* 3. Who We Are: Devaj Group Identity & Core Vision (Light Studio Theme) */}
+      {/* 3. Who We Are: Devaj Group Identity & Core Vision (تعريف الشركة) */}
       <AboutGroupSection />
 
-      {/* 4. Strategic Service Offerings (Monks-style 4-Card Grid with Lift Effects & Devaj Data) */}
-      <StrategicOfferingsSection />
-
-      {/* 5. The Two Creative Houses: Devaj Production & Devaj Film */}
+      {/* 4. One Group, Two Creative Houses: Devaj Productions & Devaj Films */}
       <TwoHousesSection />
 
-      {/* 6. Which House Fits Your Story: Interactive Project Calculator & Booking */}
+      {/* 5. Strategic Service Offerings (الخدمات - 4 كروت) */}
+      <StrategicOfferingsSection />
+
+      {/* 6. Which House Fits Your Story: Interactive Project Calculator & Payment Booking (الـ Payment) */}
       <ProjectCalculatorSection />
 
-      {/* 7. Sectors We Serve (Infinite Moving Ticker on Warm Studio Background) */}
-      <SectorsSection />
-
-      {/* 8. Brands We Have Delivered For (Compact Visual Grid + Interactive Work Screen) */}
+      {/* 7. Brands We Have Delivered For (الشركات - 6 كروت سينمائية) */}
       <ClientsPartnersSection />
 
-      {/* 7. Official Devaj Group Contact & Footer (Normal, Solid Relative Section) */}
+      {/* 8. Sectors We Serve (القطاعات التي نخدمها) */}
+      <SectorsSection />
+
+      {/* 9. Official Devaj Group Contact & Footer */}
       <footer
         id="connect"
         style={{
@@ -90,8 +90,12 @@ export default function Home() {
           color: "#eae8e4",
           position: "relative",
           zIndex: 30,
+          marginTop: "-64px",
+          borderTopLeftRadius: "52px",
+          borderTopRightRadius: "52px",
+          boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55)",
           borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-          padding: "110px 48px 48px",
+          padding: "125px 48px 48px",
         }}
       >
         <div style={{ maxWidth: "1560px", margin: "0 auto" }}>

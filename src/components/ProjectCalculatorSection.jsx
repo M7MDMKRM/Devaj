@@ -126,10 +126,14 @@ export default function ProjectCalculatorSection() {
         backgroundColor: "#0d0d0d",
         color: "#eae8e4",
         position: "relative",
-        zIndex: 22,
-        padding: "110px 0 135px",
-        overflow: "hidden",
+        zIndex: 26,
+        marginTop: "-64px",
+        borderTopLeftRadius: "52px",
+        borderTopRightRadius: "52px",
+        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55), 0 -12px 30px rgba(0, 0, 0, 0.35)",
         borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+        padding: "125px 0 135px",
+        overflow: "hidden",
       }}
     >
       {/* Ambient Red Glow */}
