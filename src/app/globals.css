@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --themed-foreground: #2d2d2d;
+  --themed-background: #eae8e4;
+  --color-dark: #1f1f1f;
+  --color-cream: #eae8e4;
+  --color-charcoal: #2d2d2d;
+
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-dmsans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-outfit: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --ease-monks: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--themed-background);
+  color: var(--themed-foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+body {
+  background-color: var(--themed-background);
+  color: var(--themed-foreground);
+  min-height: 100vh;
+  overflow-x: clip;
+  position: relative;
+}
+
+::selection {
+  background-color: var(--themed-foreground);
+  color: var(--themed-background);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+/* Monks Signature Typography */
+.font-serif {
+  font-family: var(--font-serif) !important;
+}
+.font-sans {
+  font-family: var(--font-sans) !important;
+}
+
+.monks-hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, calc(24px + 4.4vw), 86px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #eae8e4;
+  font-weight: 400;
+  margin: 0;
+}
+
+.monks-hero-heading em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  display: inline-block;
+}
+
+.monks-hero-heading strong {
+  font-weight: 700;
+}
+
+.monks-hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  color: #eae8e4;
+  opacity: 0.88;
+  margin-top: clamp(1.2rem, 2vw, 1.8rem);
+  margin-bottom: 0;
+  max-width: 620px;
+  letter-spacing: 0.015em;
+  font-weight: 400;
+}
+
+/* Monks Button Style: "Let's connect" */
+.monks-connect-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: #eae8e4;
+  color: #2d2d2d;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  border: 1px solid #eae8e4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-monks);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.monks-connect-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.monks-connect-btn .btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-monks);
+}
+
+.monks-connect-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Monks Video Play/Pause Pill Button */
+.monks-video-control-btn {
+  position: absolute;
+  bottom: 32px;
+  left: 36px;
+  z-index: 15;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 232, 228, 0.3);
+  background: rgba(45, 45, 45, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #eae8e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.monks-video-control-btn:hover {
+  background: rgba(234, 232, 228, 0.2);
+  border-color: #eae8e4;
+  transform: scale(1.05);
+}
+
+/* Floating Monks Scroll Hint Animation */
+@keyframes monksScrollFloat {
+  0%, 100% {
+    transform: translate(-50%, 0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-50%, 6px);
+    opacity: 1;
+  }
+}
+
+.monks-scroll-hint {
+  position: absolute;
+  bottom: 2.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  pointer-events: none;
+  animation: monksScrollFloat 2.6s infinite ease-in-out;
+}
