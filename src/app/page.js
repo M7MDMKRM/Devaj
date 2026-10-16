@@ -1,16 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import CinematicHero from "@/components/CinematicHero";
 import AboutGroupSection from "@/components/AboutGroupSection";
 import TwoHousesSection from "@/components/TwoHousesSection";
 import StrategicOfferingsSection from "@/components/StrategicOfferingsSection";
+import ProjectCalculatorSection from "@/components/ProjectCalculatorSection";
 import SectorsSection from "@/components/SectorsSection";
 import ClientsPartnersSection from "@/components/ClientsPartnersSection";
 
 export default function Home() {
   const [connectModalOpen, setConnectModalOpen] = useState(false);
+
+  // Global Scroll Reveal Observer: reveals and dissolves elements as user scrolls
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(
+      ".reveal-on-scroll, .reveal-from-left, .reveal-from-right, .reveal-scale"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+          } else {
+            entry.target.classList.remove("is-revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleConnectClick = (e) => {
     e?.preventDefault();
@@ -42,13 +70,16 @@ export default function Home() {
       {/* 4. Strategic Service Offerings (Monks-style 4-Card Grid with Lift Effects & Devaj Data) */}
       <StrategicOfferingsSection />
 
-      {/* 4. The Two Creative Houses: Devaj Production & Devaj Film */}
+      {/* 5. The Two Creative Houses: Devaj Production & Devaj Film */}
       <TwoHousesSection />
 
-      {/* 5. Sectors We Serve (Infinite Moving Ticker on Warm Studio Background) */}
+      {/* 6. Which House Fits Your Story: Interactive Project Calculator & Booking */}
+      <ProjectCalculatorSection />
+
+      {/* 7. Sectors We Serve (Infinite Moving Ticker on Warm Studio Background) */}
       <SectorsSection />
 
-      {/* 6. Brands We Have Delivered For (Dual Moving Marquee + Interactive Work Screen) */}
+      {/* 8. Brands We Have Delivered For (Compact Visual Grid + Interactive Work Screen) */}
       <ClientsPartnersSection />
 
       {/* 7. Official Devaj Group Contact & Footer (Normal, Solid Relative Section) */}

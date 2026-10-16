@@ -151,7 +151,7 @@ export default function StrategicOfferingsSection() {
                 onClick={() => setSelectedOffering(item)}
                 onMouseEnter={() => setHoveredCard(item.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className={`offering-card card-col-${idx + 1} ${isHovered ? "hovered" : ""} ${isSelected ? "selected" : ""}`}
+                className={`offering-card card-col-${idx + 1} ${isHovered ? "hovered" : ""} ${isSelected ? "selected" : ""} reveal-on-scroll delay-${(idx + 1) * 100}`}
               >
                 {/* Top-Right Number Overlapping Image (01, 02, 03, 04) */}
                 <div className="card-number-badge">

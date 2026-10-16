@@ -33,7 +33,7 @@ export default function AboutGroupSection() {
         {/* =================================================================== */}
         <div className="about-split-grid">
           {/* Left Column: Brand Story & Manifesto */}
-          <div className="about-content-col">
+          <div className="about-content-col reveal-from-left">
             <div
               style={{
                 display: "inline-flex",
@@ -118,7 +118,7 @@ export default function AboutGroupSection() {
           </div>
 
           {/* Right Column: Studio Photo with Transparent Logo Overlay */}
-          <div className="about-visual-col">
+          <div className="about-visual-col reveal-from-right delay-200">
             <div className="about-image-card">
               <img
                 src="/images/devaj-studio.jpg"

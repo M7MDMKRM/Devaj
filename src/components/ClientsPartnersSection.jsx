@@ -218,12 +218,12 @@ export default function ClientsPartnersSection() {
         {/* 2. COMPACT VISUAL BRAND CARDS GRID (Clean White Theme)              */}
         {/* =================================================================== */}
         <div className="brand-cards-grid">
-          {featuredBrands.map((brand) => (
+          {featuredBrands.map((brand, idx) => (
             <button
               type="button"
               key={brand.id}
               onClick={() => setSelectedBrand(brand)}
-              className={`brand-visual-card ${brand.isFirstPartner ? "first-partner-card" : ""}`}
+              className={`brand-visual-card ${brand.isFirstPartner ? "first-partner-card" : ""} reveal-on-scroll delay-${(idx + 1) * 100}`}
               aria-label={`View project details for ${brand.name}`}
             >
               {/* Image Container with Inner Zoom on Hover */}
