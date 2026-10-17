@@ -275,7 +275,7 @@ export default function DevajProductionPage() {
         {/* Center Official Logo */}
         <div>
           <img
-            src="/images/devaj-productions-logo.png"
+            src="/images/devaj-productions-logo-black.png"
             alt="Devaj Productions"
             style={{
               height: "46px",
@@ -1308,7 +1308,7 @@ export default function DevajProductionPage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <img
-            src="/images/devaj-productions-logo.png"
+            src="/images/devaj-productions-logo-black.png"
             alt="Devaj Productions"
             style={{ height: "36px", width: "auto" }}
           />
