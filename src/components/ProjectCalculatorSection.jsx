@@ -121,34 +121,15 @@ export default function ProjectCalculatorSection() {
     <section
       id="calculator"
       style={{
-        backgroundColor: "#0d0d0d",
-        color: "#eae8e4",
+        backgroundColor: "#FFFFFF",
+        color: "#151515",
         position: "relative",
         zIndex: 26,
-        marginTop: "-64px",
-        borderTopLeftRadius: "52px",
-        borderTopRightRadius: "52px",
-        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55), 0 -12px 30px rgba(0, 0, 0, 0.35)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-        padding: "125px 0 135px",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+        padding: "115px 0 130px",
         overflow: "hidden",
       }}
     >
-      {/* Ambient Red Glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: "30%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "900px",
-          height: "400px",
-          background: "radial-gradient(circle, rgba(230, 57, 70, 0.08) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
       <div
         style={{
           maxWidth: "1560px",
@@ -187,7 +168,7 @@ export default function ProjectCalculatorSection() {
             />
             <span>Project Calculator</span>
             <span style={{ fontSize: "1.1rem" }}>•</span>
-            <span style={{ color: "rgba(234, 232, 228, 0.5)", fontWeight: 600 }}>Instant Estimate</span>
+            <span style={{ color: "rgba(21, 21, 21, 0.5)", fontWeight: 600 }}>Instant Estimate</span>
           </div>
 
           <div
@@ -205,7 +186,7 @@ export default function ProjectCalculatorSection() {
                 fontSize: "clamp(2.4rem, 4.4vw, 4.2rem)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
-                color: "#ffffff",
+                color: "#111111",
                 fontWeight: 700,
                 fontStyle: "italic",
                 margin: 0,
@@ -220,7 +201,7 @@ export default function ProjectCalculatorSection() {
                 fontFamily: "var(--font-jakarta), var(--font-sans)",
                 fontSize: "clamp(0.98rem, 1.15vw, 1.15rem)",
                 lineHeight: 1.6,
-                color: "rgba(234, 232, 228, 0.65)",
+                color: "rgba(21, 21, 21, 0.68)",
                 maxWidth: "520px",
                 margin: 0,
               }}
@@ -706,13 +687,11 @@ export default function ProjectCalculatorSection() {
           display: grid;
           grid-template-columns: 340px 1fr 360px;
           gap: 32px;
-          background: rgba(22, 22, 22, 0.7);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 28px;
           padding: 36px;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
         }
 
         .col-eyebrow-label {
@@ -722,7 +701,7 @@ export default function ProjectCalculatorSection() {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.12em;
-          color: rgba(234, 232, 228, 0.5);
+          color: rgba(21, 21, 21, 0.5);
           margin-bottom: 18px;
         }
 
@@ -747,25 +726,24 @@ export default function ProjectCalculatorSection() {
           background: #ffffff;
           color: #111111;
           border: 2px solid #E63946;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(230, 57, 70, 0.25);
+          box-shadow: 0 14px 34px rgba(230, 57, 70, 0.15), 0 2px 10px rgba(0, 0, 0, 0.05);
           transform: scale(1.02);
           opacity: 1;
           filter: none;
         }
 
-        /* Inactive House: Dimmed with frosted blur ("غشاوة بسيطة") */
+        /* Inactive House: Dimmed with frosted blur */
         .house-select-btn.dimmed {
-          background: rgba(255, 255, 255, 0.04);
-          color: rgba(234, 232, 228, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          opacity: 0.38;
-          filter: blur(0.4px);
+          background: #F7F6F2;
+          color: rgba(21, 21, 21, 0.55);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          opacity: 0.75;
+          filter: none;
         }
 
         .house-select-btn.dimmed:hover {
-          opacity: 0.75;
-          filter: none;
-          background: rgba(255, 255, 255, 0.08);
+          opacity: 1;
+          background: #f0eee8;
         }
 
         .house-btn-header {
@@ -786,6 +764,7 @@ export default function ProjectCalculatorSection() {
           font-size: 1.55rem;
           font-weight: 800;
           letter-spacing: -0.02em;
+          color: #111111;
         }
 
         .brand-suffix {
@@ -795,11 +774,11 @@ export default function ProjectCalculatorSection() {
           letter-spacing: 0.12em;
         }
 
-        .house-select-btn.active .brand-suffix.productions {
+        .brand-suffix.productions {
           color: #E63946;
         }
 
-        .house-select-btn.active .brand-suffix.films {
+        .brand-suffix.films {
           color: #111111;
         }
 
@@ -810,13 +789,13 @@ export default function ProjectCalculatorSection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(0, 0, 0, 0.06);
-          color: #111111;
+          background: rgba(230, 57, 70, 0.1);
+          color: #E63946;
         }
 
         .house-select-btn.dimmed .house-active-indicator {
-          background: rgba(255, 255, 255, 0.05);
-          color: rgba(234, 232, 228, 0.4);
+          background: rgba(0, 0, 0, 0.05);
+          color: rgba(21, 21, 21, 0.4);
         }
 
         .house-desc-text {
@@ -824,16 +803,17 @@ export default function ProjectCalculatorSection() {
           font-size: 0.88rem;
           line-height: 1.5;
           margin: 0;
+          color: rgba(21, 21, 21, 0.7);
         }
 
         .house-select-btn.active .house-desc-text {
-          color: rgba(21, 21, 21, 0.78);
+          color: #111111;
         }
 
         /* Column 2: Parameters */
         .calc-col-params {
-          border-left: 1px solid rgba(255, 255, 255, 0.08);
-          border-right: 1px solid rgba(255, 255, 255, 0.08);
+          border-left: 1px solid rgba(0, 0, 0, 0.08);
+          border-right: 1px solid rgba(0, 0, 0, 0.08);
           padding: 0 32px;
           display: flex;
           flex-direction: column;
@@ -858,7 +838,7 @@ export default function ProjectCalculatorSection() {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: #eae8e4;
+          color: #111111;
         }
 
         .param-value-badge {
@@ -866,16 +846,16 @@ export default function ProjectCalculatorSection() {
           font-size: 0.95rem;
           font-weight: 800;
           color: #E63946;
-          background: rgba(230, 57, 70, 0.12);
+          background: rgba(230, 57, 70, 0.08);
           padding: 4px 12px;
           border-radius: 9999px;
-          border: 1px solid rgba(230, 57, 70, 0.3);
+          border: 1px solid rgba(230, 57, 70, 0.25);
         }
 
         .param-sub-hint {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.75rem;
-          color: rgba(234, 232, 228, 0.45);
+          color: rgba(21, 21, 21, 0.45);
           text-transform: uppercase;
         }
 
@@ -886,7 +866,7 @@ export default function ProjectCalculatorSection() {
           width: 100%;
           height: 6px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.12);
+          background: #e5e3dc;
           outline: none;
           cursor: pointer;
           margin-bottom: 8px;
@@ -900,7 +880,7 @@ export default function ProjectCalculatorSection() {
           border-radius: 50%;
           background: #E63946;
           cursor: pointer;
-          box-shadow: 0 0 12px #E63946, 0 2px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 10px rgba(230, 57, 70, 0.6), 0 2px 6px rgba(0, 0, 0, 0.2);
           transition: transform 0.15s ease;
         }
 
@@ -912,7 +892,7 @@ export default function ProjectCalculatorSection() {
           display: flex;
           justify-content: space-between;
           font-size: 0.72rem;
-          color: rgba(234, 232, 228, 0.35);
+          color: rgba(21, 21, 21, 0.45);
           font-family: var(--font-jakarta), var(--font-sans);
         }
 
@@ -924,8 +904,8 @@ export default function ProjectCalculatorSection() {
         }
 
         .quality-btn {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 14px;
           padding: 14px 16px;
           text-align: left;
@@ -937,10 +917,14 @@ export default function ProjectCalculatorSection() {
           gap: 6px;
         }
 
+        .quality-btn:hover {
+          background: #eceae3;
+        }
+
         .quality-btn.active {
-          background: rgba(230, 57, 70, 0.12);
+          background: rgba(230, 57, 70, 0.06);
           border-color: #E63946;
-          box-shadow: 0 4px 18px rgba(230, 57, 70, 0.25);
+          box-shadow: 0 4px 18px rgba(230, 57, 70, 0.15);
         }
 
         .quality-header {
@@ -954,7 +938,7 @@ export default function ProjectCalculatorSection() {
           font-size: 0.8rem;
           font-weight: 800;
           letter-spacing: 0.06em;
-          color: #ffffff;
+          color: #111111;
         }
 
         .quality-tag {
@@ -962,8 +946,8 @@ export default function ProjectCalculatorSection() {
           font-weight: 800;
           padding: 2px 6px;
           border-radius: 4px;
-          background: rgba(255, 255, 255, 0.1);
-          color: #eae8e4;
+          background: rgba(0, 0, 0, 0.06);
+          color: #111111;
         }
 
         .quality-btn.active .quality-tag {
@@ -975,7 +959,7 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.75rem;
           line-height: 1.4;
-          color: rgba(234, 232, 228, 0.55);
+          color: rgba(21, 21, 21, 0.65);
         }
 
         /* Post-Production Pills */
@@ -991,9 +975,9 @@ export default function ProjectCalculatorSection() {
           gap: 7px;
           padding: 8px 14px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: rgba(234, 232, 228, 0.65);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          color: rgba(21, 21, 21, 0.75);
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.78rem;
           font-weight: 600;
@@ -1003,15 +987,15 @@ export default function ProjectCalculatorSection() {
         }
 
         .post-pill:hover {
-          background: rgba(255, 255, 255, 0.08);
-          color: #ffffff;
+          background: #eae8e1;
+          color: #111111;
         }
 
         .post-pill.selected {
           background: #E63946;
           border-color: #E63946;
           color: #ffffff;
-          box-shadow: 0 3px 12px rgba(230, 57, 70, 0.35);
+          box-shadow: 0 3px 12px rgba(230, 57, 70, 0.3);
         }
 
         .pill-dot {
@@ -1025,7 +1009,7 @@ export default function ProjectCalculatorSection() {
         .calc-col-summary {
           display: flex;
           flex-direction: column;
-          justifyContent: space-between;
+          justify-content: space-between;
         }
 
         .estimate-number-box {
@@ -1037,7 +1021,7 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: clamp(2.3rem, 3.2vw, 3.1rem);
           font-weight: 800;
-          color: #ffffff;
+          color: #111111;
           letter-spacing: -0.03em;
           line-height: 1.08;
           margin-bottom: 12px;
@@ -1047,13 +1031,13 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.8rem;
           line-height: 1.5;
-          color: rgba(234, 232, 228, 0.45);
+          color: rgba(21, 21, 21, 0.55);
           margin: 0;
         }
 
         .estimate-breakdown-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.07);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 16px;
           padding: 16px 18px;
           margin-bottom: 24px;
@@ -1067,11 +1051,11 @@ export default function ProjectCalculatorSection() {
           justify-content: space-between;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.82rem;
-          color: rgba(234, 232, 228, 0.6);
+          color: rgba(21, 21, 21, 0.65);
         }
 
         .breakdown-row strong {
-          color: #eae8e4;
+          color: #111111;
         }
 
         .calc-submit-btn {
@@ -1090,14 +1074,14 @@ export default function ProjectCalculatorSection() {
           border: none;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 10px 28px rgba(230, 57, 70, 0.4);
+          box-shadow: 0 10px 28px rgba(230, 57, 70, 0.35);
           margin-bottom: 12px;
         }
 
         .calc-submit-btn:hover {
           background: #ff4757;
           transform: translateY(-2px);
-          box-shadow: 0 14px 34px rgba(230, 57, 70, 0.55);
+          box-shadow: 0 14px 34px rgba(230, 57, 70, 0.5);
         }
 
         .calc-whatsapp-btn {
@@ -1108,9 +1092,9 @@ export default function ProjectCalculatorSection() {
           gap: 8px;
           padding: 13px 20px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          color: #eae8e4;
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          color: #111111;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.88rem;
           font-weight: 600;
@@ -1119,18 +1103,18 @@ export default function ProjectCalculatorSection() {
         }
 
         .calc-whatsapp-btn:hover {
-          background: rgba(37, 211, 102, 0.15);
+          background: rgba(37, 211, 102, 0.12);
           border-color: #25D366;
-          color: #ffffff;
+          color: #128C7E;
         }
 
         /* Payment Modal Screen */
         .payment-modal-backdrop {
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.82);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
+          background: rgba(0, 0, 0, 0.55);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
           z-index: 99999;
           display: flex;
           align-items: center;
@@ -1141,16 +1125,17 @@ export default function ProjectCalculatorSection() {
 
         .payment-modal-card {
           position: relative;
-          background: #141414;
-          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 28px;
           max-width: 820px;
           width: 100%;
           max-height: 90vh;
           overflow-y: auto;
-          box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85), 0 0 40px rgba(230, 57, 70, 0.2);
+          box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
           padding: 42px;
           animation: modalScaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          color: #111111;
         }
 
         .payment-close-btn {
@@ -1160,9 +1145,9 @@ export default function ProjectCalculatorSection() {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          color: #eae8e4;
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          color: #111111;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -1189,7 +1174,7 @@ export default function ProjectCalculatorSection() {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          color: #25D366;
+          color: #128C7E;
           margin-bottom: 8px;
         }
 
@@ -1198,19 +1183,19 @@ export default function ProjectCalculatorSection() {
           font-size: 2.1rem;
           font-weight: 700;
           font-style: italic;
-          color: #ffffff;
+          color: #111111;
           margin: 0 0 8px 0;
         }
 
         .payment-modal-sub {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.95rem;
-          color: rgba(234, 232, 228, 0.65);
+          color: rgba(21, 21, 21, 0.68);
           margin: 0;
         }
 
         .payment-modal-sub strong {
-          color: #eae8e4;
+          color: #111111;
         }
 
         .payment-summary-pill {
@@ -1219,8 +1204,8 @@ export default function ProjectCalculatorSection() {
           justifyContent: space-between;
           align-items: center;
           gap: 14px;
-          background: rgba(230, 57, 70, 0.09);
-          border: 1px solid rgba(230, 57, 70, 0.25);
+          background: rgba(230, 57, 70, 0.06);
+          border: 1px solid rgba(230, 57, 70, 0.2);
           border-radius: 16px;
           padding: 16px 20px;
           margin-bottom: 28px;
@@ -1229,7 +1214,7 @@ export default function ProjectCalculatorSection() {
         .summary-label {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.85rem;
-          color: rgba(234, 232, 228, 0.7);
+          color: rgba(21, 21, 21, 0.7);
           margin-right: 10px;
         }
 
@@ -1237,15 +1222,16 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 1.45rem;
           font-weight: 800;
-          color: #ffffff;
+          color: #E63946;
         }
 
         .summary-details-chip {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.82rem;
           font-weight: 600;
-          color: rgba(234, 232, 228, 0.7);
-          background: rgba(0, 0, 0, 0.35);
+          color: rgba(21, 21, 21, 0.7);
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           padding: 4px 12px;
           border-radius: 9999px;
         }
@@ -1262,17 +1248,17 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.82rem;
           font-weight: 700;
-          color: rgba(234, 232, 228, 0.8);
+          color: #111111;
           margin-bottom: 8px;
         }
 
         .modal-text-input {
           width: 100%;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 12px;
           padding: 13px 16px;
-          color: #ffffff;
+          color: #111111;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.92rem;
           outline: none;
@@ -1281,7 +1267,7 @@ export default function ProjectCalculatorSection() {
 
         .modal-text-input:focus {
           border-color: #E63946;
-          background: rgba(255, 255, 255, 0.08);
+          background: #ffffff;
         }
 
         /* Payment Methods */
@@ -1303,9 +1289,9 @@ export default function ProjectCalculatorSection() {
           gap: 8px;
           padding: 12px 14px;
           border-radius: 12px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: rgba(234, 232, 228, 0.65);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          color: rgba(21, 21, 21, 0.7);
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.82rem;
           font-weight: 700;
@@ -1315,15 +1301,15 @@ export default function ProjectCalculatorSection() {
         }
 
         .method-tab-btn.active {
-          background: rgba(230, 57, 70, 0.15);
+          background: rgba(230, 57, 70, 0.08);
           border-color: #E63946;
-          color: #ffffff;
-          box-shadow: 0 4px 14px rgba(230, 57, 70, 0.2);
+          color: #E63946;
+          box-shadow: 0 4px 14px rgba(230, 57, 70, 0.15);
         }
 
         .method-details-panel {
-          background: rgba(0, 0, 0, 0.4);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 14px;
           padding: 18px 20px;
         }
@@ -1340,14 +1326,15 @@ export default function ProjectCalculatorSection() {
           align-items: center;
           gap: 6px;
           font-size: 0.75rem;
-          color: rgba(234, 232, 228, 0.45);
+          color: rgba(21, 21, 21, 0.55);
         }
 
         .instapay-badge-box {
           display: flex;
           align-items: center;
           gap: 10px;
-          background: rgba(255, 255, 255, 0.06);
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           padding: 10px 16px;
           border-radius: 10px;
           margin-bottom: 8px;
@@ -1355,20 +1342,20 @@ export default function ProjectCalculatorSection() {
 
         .instapay-label {
           font-size: 0.82rem;
-          color: rgba(234, 232, 228, 0.65);
+          color: rgba(21, 21, 21, 0.7);
         }
 
         .instapay-address {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.95rem;
           font-weight: 800;
-          color: #25D366;
+          color: #128C7E;
         }
 
         .instapay-hint,
         .deposit-text {
           font-size: 0.82rem;
-          color: rgba(234, 232, 228, 0.55);
+          color: rgba(21, 21, 21, 0.65);
           margin: 0;
           line-height: 1.5;
         }
@@ -1396,18 +1383,18 @@ export default function ProjectCalculatorSection() {
           border: none;
           cursor: pointer;
           transition: all 0.25s ease;
-          box-shadow: 0 10px 30px rgba(230, 57, 70, 0.45);
+          box-shadow: 0 10px 30px rgba(230, 57, 70, 0.35);
         }
 
         .confirm-payment-btn:hover {
           background: #ff4757;
           transform: translateY(-2px);
-          box-shadow: 0 14px 38px rgba(230, 57, 70, 0.6);
+          box-shadow: 0 14px 38px rgba(230, 57, 70, 0.5);
         }
 
         .guarantee-text {
           font-size: 0.78rem;
-          color: rgba(234, 232, 228, 0.45);
+          color: rgba(21, 21, 21, 0.55);
         }
 
         /* Processing View */
@@ -1424,7 +1411,7 @@ export default function ProjectCalculatorSection() {
           width: 48px;
           height: 48px;
           border-radius: 50%;
-          border: 3px solid rgba(255, 255, 255, 0.1);
+          border: 3px solid rgba(0, 0, 0, 0.1);
           border-top-color: #E63946;
           animation: spin 0.8s linear infinite;
           margin-bottom: 24px;
@@ -1434,13 +1421,13 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 1.4rem;
           font-weight: 700;
-          color: #ffffff;
+          color: #111111;
           margin: 0 0 8px 0;
         }
 
         .processing-sub {
           font-size: 0.9rem;
-          color: rgba(234, 232, 228, 0.55);
+          color: rgba(21, 21, 21, 0.65);
           margin: 0;
         }
 
@@ -1462,7 +1449,7 @@ export default function ProjectCalculatorSection() {
           font-size: 2.2rem;
           font-weight: 700;
           font-style: italic;
-          color: #ffffff;
+          color: #111111;
           margin: 0 0 10px 0;
         }
 
@@ -1472,10 +1459,10 @@ export default function ProjectCalculatorSection() {
           font-weight: 800;
           letter-spacing: 0.1em;
           color: #E63946;
-          background: rgba(230, 57, 70, 0.12);
+          background: rgba(230, 57, 70, 0.08);
           padding: 4px 14px;
           border-radius: 9999px;
-          border: 1px solid rgba(230, 57, 70, 0.3);
+          border: 1px solid rgba(230, 57, 70, 0.25);
           margin-bottom: 18px;
         }
 
@@ -1483,7 +1470,7 @@ export default function ProjectCalculatorSection() {
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.98rem;
           line-height: 1.65;
-          color: rgba(234, 232, 228, 0.8);
+          color: rgba(21, 21, 21, 0.75);
           max-width: 540px;
           margin: 0 0 32px 0;
         }
@@ -1521,9 +1508,9 @@ export default function ProjectCalculatorSection() {
           align-items: center;
           padding: 14px 26px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          color: #eae8e4;
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          color: #111111;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.95rem;
           font-weight: 600;
@@ -1532,7 +1519,7 @@ export default function ProjectCalculatorSection() {
         }
 
         .success-done-btn:hover {
-          background: rgba(255, 255, 255, 0.14);
+          background: #e8e6df;
         }
 
         @keyframes spin {
@@ -1570,8 +1557,8 @@ export default function ProjectCalculatorSection() {
           .calc-col-params {
             border-left: none;
             border-right: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 28px 0;
           }
         }

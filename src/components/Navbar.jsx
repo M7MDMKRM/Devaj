@@ -69,12 +69,13 @@ export default function Navbar() {
           right: 0,
           zIndex: 50,
           transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          backgroundColor: scrolled ? "rgba(45, 45, 45, 0.95)" : "transparent",
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(234, 232, 228, 0.12)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.08)" : "1px solid transparent",
+          boxShadow: scrolled ? "0 4px 24px rgba(0, 0, 0, 0.04)" : "none",
           padding: scrolled ? "1.6rem 3.5rem" : "2.6rem 3.5rem",
-          color: "#eae8e4",
+          color: scrolled ? "#111111" : "#eae8e4",
         }}
       >
         <div
@@ -113,6 +114,8 @@ export default function Navbar() {
                 width: "auto",
                 display: "block",
                 objectFit: "contain",
+                filter: scrolled && !menuOpen ? "invert(1) hue-rotate(180deg)" : (menuOpen ? "invert(1) hue-rotate(180deg)" : "none"),
+                transition: "filter 0.3s ease",
               }}
             />
           </a>
@@ -133,14 +136,14 @@ export default function Navbar() {
               gap: "6px",
               width: "48px",
               height: "40px",
-              color: "#eae8e4",
+              color: menuOpen ? "#111111" : (scrolled ? "#111111" : "#eae8e4"),
             }}
           >
             <span
               style={{
                 display: "block",
                 height: "1.5px",
-                backgroundColor: "#eae8e4",
+                backgroundColor: menuOpen ? "#111111" : (scrolled ? "#111111" : "#eae8e4"),
                 transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 width: menuOpen ? "28px" : "36px",
                 transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
@@ -150,7 +153,7 @@ export default function Navbar() {
               style={{
                 display: "block",
                 height: "1.5px",
-                backgroundColor: "#eae8e4",
+                backgroundColor: menuOpen ? "#111111" : (scrolled ? "#111111" : "#eae8e4"),
                 transition: "all 0.2s ease",
                 width: "28px",
                 opacity: menuOpen ? 0 : 1,
@@ -160,7 +163,7 @@ export default function Navbar() {
               style={{
                 display: "block",
                 height: "1.5px",
-                backgroundColor: "#eae8e4",
+                backgroundColor: menuOpen ? "#111111" : (scrolled ? "#111111" : "#eae8e4"),
                 transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 width: menuOpen ? "28px" : "32px",
                 transform: menuOpen ? "rotate(-45deg) translate(6px, -6px)" : "none",
@@ -177,8 +180,8 @@ export default function Navbar() {
             position: "fixed",
             inset: 0,
             zIndex: 49,
-            backgroundColor: "#2d2d2d",
-            color: "#eae8e4",
+            backgroundColor: "#FFFFFF",
+            color: "#111111",
             padding: "120px 48px 60px",
             display: "flex",
             flexDirection: "column",
@@ -199,7 +202,7 @@ export default function Navbar() {
                 fontSize: "0.85rem",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "rgba(234, 232, 228, 0.5)",
+                color: "rgba(21, 21, 21, 0.5)",
                 marginBottom: "40px",
               }}
             >
@@ -215,7 +218,7 @@ export default function Navbar() {
               }}
             >
               {menuItems.map((item) => (
-                <li key={item.id} style={{ borderBottom: "1px solid rgba(234, 232, 228, 0.1)", paddingBottom: "24px" }}>
+                <li key={item.id} style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.08)", paddingBottom: "24px" }}>
                   <div
                     onClick={() => {
                       if (item.hasSubmenu) {
@@ -237,7 +240,7 @@ export default function Navbar() {
                           width: "8px",
                           height: "8px",
                           borderRadius: "50%",
-                          backgroundColor: "#eae8e4",
+                          backgroundColor: "#E63946",
                           display: "inline-block",
                         }}
                       />
@@ -247,6 +250,7 @@ export default function Navbar() {
                           fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
                           fontWeight: 500,
                           letterSpacing: "-0.02em",
+                          color: "#111111",
                         }}
                       >
                         {item.label}
@@ -257,6 +261,7 @@ export default function Navbar() {
                       <span
                         style={{
                           fontSize: "1.5rem",
+                          color: "#111111",
                           transform: openSubmenu === item.id ? "rotate(180deg)" : "none",
                           transition: "transform 0.2s ease",
                         }}
@@ -264,7 +269,7 @@ export default function Navbar() {
                         ↓
                       </span>
                     ) : (
-                      <span style={{ fontSize: "1.5rem" }}>→</span>
+                      <span style={{ fontSize: "1.5rem", color: "#111111" }}>→</span>
                     )}
                   </div>
 
@@ -285,14 +290,14 @@ export default function Navbar() {
                           href={sub.href}
                           onClick={() => setMenuOpen(false)}
                           style={{
-                            color: "rgba(234, 232, 228, 0.75)",
+                            color: "rgba(21, 21, 21, 0.7)",
                             textDecoration: "none",
                             fontSize: "1.15rem",
                             fontFamily: "var(--font-sans)",
                             transition: "color 0.2s ease",
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
-                          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(234, 232, 228, 0.75)")}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = "#E63946")}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(21, 21, 21, 0.7)")}
                         >
                           {sub.label}
                         </a>

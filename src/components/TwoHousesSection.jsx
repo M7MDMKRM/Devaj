@@ -64,20 +64,16 @@ export default function TwoHousesSection() {
     <section
       id="houses"
       style={{
-        backgroundColor: "#111111",
-        color: "#eae8e4",
+        backgroundColor: "#FFFFFF",
+        color: "#151515",
         position: "relative",
         zIndex: 24,
-        marginTop: "-64px",
-        borderTopLeftRadius: "52px",
-        borderTopRightRadius: "52px",
-        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.45), 0 -12px 30px rgba(0, 0, 0, 0.25)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
         padding: "120px 0 140px",
         overflow: "hidden",
       }}
     >
-      {/* Subtle Ambient Background Glow */}
+      {/* Subtle Ambient Glow */}
       <div
         style={{
           position: "absolute",
@@ -86,7 +82,7 @@ export default function TwoHousesSection() {
           transform: "translateX(-50%)",
           width: "900px",
           height: "500px",
-          background: "radial-gradient(circle, rgba(230, 57, 70, 0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(230, 57, 70, 0.04) 0%, transparent 70%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -121,7 +117,7 @@ export default function TwoHousesSection() {
               fontSize: "clamp(2.4rem, 4.4vw, 4.4rem)",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
-              color: "#eae8e4",
+              color: "#111111",
               margin: 0,
               maxWidth: "840px",
               fontWeight: 700,
@@ -141,7 +137,7 @@ export default function TwoHousesSection() {
               fontFamily: "var(--font-jakarta)",
               fontSize: "clamp(1.02rem, 1.22vw, 1.18rem)",
               lineHeight: 1.72,
-              color: "rgba(234, 232, 228, 0.8)",
+              color: "rgba(21, 21, 21, 0.72)",
               maxWidth: "680px",
               margin: 0,
               fontWeight: 400,
@@ -202,8 +198,8 @@ export default function TwoHousesSection() {
               borderRadius: "16px",
               cursor: "pointer",
               backgroundColor: "#0d0d0d",
-              border: activeHouse === "production" ? "1px solid rgba(230, 57, 70, 0.65)" : "1px solid rgba(255, 255, 255, 0.12)",
-              boxShadow: activeHouse === "production" ? "0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(230, 57, 70, 0.2)" : "0 10px 40px rgba(0, 0, 0, 0.4)",
+              border: activeHouse === "production" ? "2px solid #E63946" : "1px solid rgba(0, 0, 0, 0.08)",
+              boxShadow: activeHouse === "production" ? "0 25px 60px rgba(230, 57, 70, 0.18), 0 10px 30px rgba(0, 0, 0, 0.12)" : "0 15px 40px rgba(0, 0, 0, 0.08)",
             }}
           >
             {/* Background Video */}
@@ -414,8 +410,8 @@ export default function TwoHousesSection() {
               borderRadius: "16px",
               cursor: "pointer",
               backgroundColor: "#0d0d0d",
-              border: activeHouse === "film" ? "1px solid rgba(230, 57, 70, 0.65)" : "1px solid rgba(255, 255, 255, 0.12)",
-              boxShadow: activeHouse === "film" ? "0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(230, 57, 70, 0.2)" : "0 10px 40px rgba(0, 0, 0, 0.4)",
+              border: activeHouse === "film" ? "2px solid #E63946" : "1px solid rgba(0, 0, 0, 0.08)",
+              boxShadow: activeHouse === "film" ? "0 25px 60px rgba(230, 57, 70, 0.18), 0 10px 30px rgba(0, 0, 0, 0.12)" : "0 15px 40px rgba(0, 0, 0, 0.08)",
             }}
           >
             {/* Background Video */}

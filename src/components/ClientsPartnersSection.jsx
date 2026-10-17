@@ -215,13 +215,13 @@ export default function ClientsPartnersSection() {
     <section
       id="clients"
       style={{
-        backgroundColor: "#0d0d0d",
-        color: "#eae8e4",
+        backgroundColor: "#F7F6F2",
+        color: "#151515",
         position: "relative",
         zIndex: 26,
         padding: "110px 0 135px",
         overflow: "hidden",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
       }}
     >
       <div
@@ -261,7 +261,7 @@ export default function ClientsPartnersSection() {
             >
               <span>Selected Works</span>
               <span style={{ fontSize: "1.1rem" }}>•</span>
-              <span style={{ color: "rgba(234, 232, 228, 0.5)", fontWeight: 600 }}>Brand Archive</span>
+              <span style={{ color: "rgba(21, 21, 21, 0.5)", fontWeight: 600 }}>Brand Archive</span>
             </div>
 
             <h2
@@ -270,7 +270,7 @@ export default function ClientsPartnersSection() {
                 fontSize: "clamp(2.4rem, 4.4vw, 4.2rem)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
-                color: "#ffffff",
+                color: "#111111",
                 fontWeight: 700,
                 fontStyle: "italic",
                 margin: 0,
@@ -622,9 +622,9 @@ export default function ClientsPartnersSection() {
           gap: 8px;
           padding: 10px 20px;
           border-radius: 9999px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          color: rgba(234, 232, 228, 0.7);
+          background: #ffffff;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          color: rgba(21, 21, 21, 0.7);
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.78rem;
           font-weight: 700;
@@ -636,22 +636,22 @@ export default function ClientsPartnersSection() {
         }
 
         .filter-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
-          color: #ffffff;
+          background: #f0eee8;
+          color: #111111;
         }
 
         .filter-btn.active {
-          background: #ffffff;
-          border-color: #ffffff;
-          color: #111111;
-          box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+          background: #111111;
+          border-color: #111111;
+          color: #ffffff;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
         }
 
         .filter-count {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: rgba(0, 0, 0, 0.12);
+          background: rgba(0, 0, 0, 0.08);
           display: inline-flex;
           align-items: center;
           justify-content: center;

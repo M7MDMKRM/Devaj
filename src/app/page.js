@@ -52,8 +52,8 @@ export default function Home() {
       dir="ltr"
       style={{
         minHeight: "100vh",
-        backgroundColor: "#171717",
-        color: "#eae8e4",
+        backgroundColor: "#F7F6F2",
+        color: "#151515",
         position: "relative",
       }}
     >
@@ -81,20 +81,16 @@ export default function Home() {
       {/* 8. Sectors We Serve (القطاعات التي نخدمها) */}
       <SectorsSection />
 
-      {/* 9. Official Devaj Group Contact & Footer */}
+      {/* 9. Official Devaj Group Contact & Footer (Pure White Theme) */}
       <footer
         id="connect"
         style={{
-          backgroundColor: "#181818",
-          color: "#eae8e4",
+          backgroundColor: "#FFFFFF",
+          color: "#151515",
           position: "relative",
           zIndex: 30,
-          marginTop: "-64px",
-          borderTopLeftRadius: "52px",
-          borderTopRightRadius: "52px",
-          boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55)",
-          borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-          padding: "125px 48px 48px",
+          borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+          padding: "120px 48px 48px",
         }}
       >
         <div style={{ maxWidth: "1560px", margin: "0 auto" }}>
@@ -107,7 +103,7 @@ export default function Home() {
               alignItems: "flex-end",
               gap: "40px",
               paddingBottom: "80px",
-              borderBottom: "1px solid rgba(234, 232, 228, 0.12)",
+              borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
               marginBottom: "80px",
             }}
           >
@@ -132,7 +128,7 @@ export default function Home() {
                   fontSize: "clamp(2.4rem, 4.4vw, 4.2rem)",
                   lineHeight: 1.1,
                   letterSpacing: "-0.025em",
-                  color: "#eae8e4",
+                  color: "#111111",
                   fontWeight: 700,
                   fontStyle: "italic",
                   margin: 0,
@@ -146,7 +142,7 @@ export default function Home() {
                   fontFamily: "var(--font-jakarta), var(--font-sans)",
                   fontSize: "clamp(1.02rem, 1.25vw, 1.18rem)",
                   lineHeight: 1.6,
-                  color: "rgba(234, 232, 228, 0.7)",
+                  color: "rgba(21, 21, 21, 0.72)",
                   marginTop: "18px",
                   marginBottom: 0,
                   maxWidth: "620px",
@@ -190,12 +186,12 @@ export default function Home() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "10px",
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
-                  border: "1px solid rgba(255, 255, 255, 0.16)",
-                  color: "#eae8e4",
+                  backgroundColor: "#F7F6F2",
+                  border: "1px solid rgba(0, 0, 0, 0.12)",
+                  color: "#111111",
                   fontFamily: "var(--font-jakarta), var(--font-sans)",
                   fontSize: "0.95rem",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   padding: "15px 32px",
                   borderRadius: "9999px",
                   textDecoration: "none",
@@ -238,7 +234,7 @@ export default function Home() {
               </div>
               <p
                 style={{
-                  color: "rgba(234, 232, 228, 0.65)",
+                  color: "rgba(21, 21, 21, 0.68)",
                   lineHeight: 1.6,
                   fontSize: "0.95rem",
                   maxWidth: "360px",
@@ -252,22 +248,22 @@ export default function Home() {
             <div>
               <h4
                 style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "0.92rem",
-                  fontWeight: 600,
+                  fontFamily: "var(--font-jakarta), var(--font-sans)",
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
                   textTransform: "uppercase",
-                  letterSpacing: "0.08em",
+                  letterSpacing: "0.1em",
                   marginBottom: "22px",
-                  color: "#eae8e4",
+                  color: "#111111",
                 }}
               >
-                Houses & Craft
+                Houses &amp; Craft
               </h4>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
-                <a href="#houses" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Creative House 01 — Devaj Productions</a>
-                <a href="#houses" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Creative House 02 — Devaj Films</a>
-                <a href="#offerings" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Strategic Capabilities</a>
-                <a href="#sectors" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Sectors We Serve</a>
+                <a href="#houses" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Creative House 01 — Devaj Productions</a>
+                <a href="#houses" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Creative House 02 — Devaj Films</a>
+                <a href="#offerings" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Strategic Capabilities</a>
+                <a href="#sectors" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Sectors We Serve</a>
               </div>
             </div>
 
@@ -275,22 +271,22 @@ export default function Home() {
             <div>
               <h4
                 style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "0.92rem",
-                  fontWeight: 600,
+                  fontFamily: "var(--font-jakarta), var(--font-sans)",
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
                   textTransform: "uppercase",
-                  letterSpacing: "0.08em",
+                  letterSpacing: "0.1em",
                   marginBottom: "22px",
-                  color: "#eae8e4",
+                  color: "#111111",
                 }}
               >
                 Devaj Group
               </h4>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
-                <a href="#offerings" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>About The Group</a>
-                <a href="#houses" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Our Work</a>
-                <a href="#sectors" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Our Philosophy</a>
-                <a href="mailto:careers@devajgroup.com" style={{ color: "rgba(234, 232, 228, 0.7)", textDecoration: "none" }}>Careers</a>
+                <a href="#offerings" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>About The Group</a>
+                <a href="#houses" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Our Work</a>
+                <a href="#sectors" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Our Philosophy</a>
+                <a href="mailto:careers@devajgroup.com" style={{ color: "rgba(21, 21, 21, 0.72)", textDecoration: "none" }}>Careers</a>
               </div>
             </div>
 
@@ -298,28 +294,28 @@ export default function Home() {
             <div>
               <h4
                 style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "0.92rem",
-                  fontWeight: 600,
+                  fontFamily: "var(--font-jakarta), var(--font-sans)",
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
                   textTransform: "uppercase",
-                  letterSpacing: "0.08em",
+                  letterSpacing: "0.1em",
                   marginBottom: "22px",
-                  color: "#eae8e4",
+                  color: "#111111",
                 }}
               >
                 Direct Office
               </h4>
-              <p style={{ color: "rgba(234, 232, 228, 0.7)", fontSize: "0.95rem", marginBottom: "8px" }}>
+              <p style={{ color: "rgba(21, 21, 21, 0.72)", fontSize: "0.95rem", marginBottom: "8px" }}>
                 Cairo, Egypt
               </p>
-              <p style={{ color: "rgba(234, 232, 228, 0.7)", fontSize: "0.95rem", marginBottom: "16px" }}>
+              <p style={{ color: "rgba(21, 21, 21, 0.72)", fontSize: "0.95rem", marginBottom: "16px" }}>
                 Tel: +20 101 404 9339
               </p>
               <a
                 href="mailto:contact@devajgroup.com"
                 style={{
-                  color: "#eae8e4",
-                  fontWeight: 600,
+                  color: "#111111",
+                  fontWeight: 700,
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
                 }}
@@ -332,7 +328,7 @@ export default function Home() {
           {/* Bottom Bar */}
           <div
             style={{
-              borderTop: "1px solid rgba(234, 232, 228, 0.12)",
+              borderTop: "1px solid rgba(0, 0, 0, 0.08)",
               paddingTop: "32px",
               display: "flex",
               flexWrap: "wrap",
@@ -340,7 +336,7 @@ export default function Home() {
               alignItems: "center",
               gap: "20px",
               fontSize: "0.85rem",
-              color: "rgba(234, 232, 228, 0.45)",
+              color: "rgba(21, 21, 21, 0.5)",
             }}
           >
             <div>
@@ -348,7 +344,7 @@ export default function Home() {
             </div>
             <div style={{ display: "flex", gap: "24px" }}>
               <span>Privacy Notice</span>
-              <span>Terms & Conditions</span>
+              <span>Terms &amp; Conditions</span>
               <span>Cookie Settings</span>
             </div>
           </div>
