@@ -1315,7 +1315,7 @@ export default function DevajFilmsPage() {
             style={{ height: "36px", width: "auto" }}
           />
           <span style={{ fontSize: "0.85rem", color: "rgba(21, 21, 21, 0.6)" }}>
-            © {new Date().getFullYear()} Devaj Films — An Autonomous Studio under Devaj Group.
+            © 2026 Devaj Films — An Autonomous Studio under Devaj Group.
           </span>
         </div>
 

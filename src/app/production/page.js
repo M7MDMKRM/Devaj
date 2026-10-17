@@ -1313,7 +1313,7 @@ export default function DevajProductionPage() {
             style={{ height: "36px", width: "auto" }}
           />
           <span style={{ fontSize: "0.85rem", color: "rgba(21, 21, 21, 0.6)" }}>
-            © {new Date().getFullYear()} Devaj Productions — An Autonomous Entity under Devaj Group.
+            © 2026 Devaj Productions — An Autonomous Entity under Devaj Group.
           </span>
         </div>
 
