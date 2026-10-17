@@ -312,22 +312,14 @@ export default function AboutGroupSection() {
           line-height: 1.12;
         }
 
-        .headline-serif-part {
+        .headline-serif-part,
+        .headline-sans-part {
           font-family: var(--font-serif);
           font-size: clamp(2.3rem, 3.6vw, 3.5rem);
           font-weight: 500;
           font-style: normal;
           letter-spacing: -0.025em;
           color: #111111;
-        }
-
-        .headline-sans-part {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(2.2rem, 3.4vw, 3.3rem);
-          font-weight: 800;
-          font-style: normal;
-          letter-spacing: -0.035em;
-          color: #151515;
         }
 
         .headline-accent-dot {

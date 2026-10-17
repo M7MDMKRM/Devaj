@@ -80,23 +80,14 @@ body {
   line-height: 1.05;
 }
 
-.headline-serif-line {
+.headline-serif-line,
+.headline-sans-line {
   font-family: var(--font-serif);
   font-size: clamp(40px, calc(22px + 4.2vw), 84px);
   font-weight: 500;
   font-style: normal;
   letter-spacing: -0.025em;
   color: #eae8e4;
-  line-height: 1.08;
-}
-
-.headline-sans-line {
-  font-family: var(--font-jakarta), var(--font-sans);
-  font-size: clamp(38px, calc(20px + 4.2vw), 82px);
-  font-weight: 800;
-  font-style: normal;
-  letter-spacing: -0.035em;
-  color: #ffffff;
   line-height: 1.08;
 }
 

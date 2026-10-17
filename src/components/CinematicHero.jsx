@@ -150,10 +150,10 @@ export default function CinematicHero({
           </span>
         </div>
 
-        {/* Heading: Dual Typography matching user's reference image */}
+        {/* Heading: One group, Two creative houses */}
         <h1 className="hero-monks-headline">
           <span className="headline-serif-line">One group,</span>
-          <span className="headline-sans-line">Two creative houses</span>
+          <span className="headline-serif-line">Two creative houses</span>
         </h1>
 
         {/* Small subtitle underneath: From the first frame of an idea to the final cut */}
