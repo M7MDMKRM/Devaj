@@ -125,15 +125,15 @@ export default function StrategicOfferingsSection() {
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2.3rem, 4.2vw, 4.1rem)",
               lineHeight: 1.12,
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.025em",
               color: "#111111",
-              fontWeight: 700,
-              fontStyle: "italic",
+              fontWeight: 500,
+              fontStyle: "normal",
               margin: 0,
             }}
           >
             Your trusted creative partner from first frame to final cut across four specialized offerings
-            <span style={{ color: "#E63946", fontStyle: "normal" }}>:</span>
+            <span style={{ color: "#E63946" }}>:</span>
           </h2>
         </div>
 

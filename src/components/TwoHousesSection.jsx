@@ -116,12 +116,12 @@ export default function TwoHousesSection() {
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2.4rem, 4.4vw, 4.4rem)",
               lineHeight: 1.1,
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.025em",
               color: "#111111",
               margin: 0,
               maxWidth: "840px",
-              fontWeight: 700,
-              fontStyle: "italic",
+              fontWeight: 500,
+              fontStyle: "normal",
               opacity: headerVisible ? 1 : 0,
               transform: headerVisible ? "translateY(0)" : "translateY(45px)",
               transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -129,7 +129,7 @@ export default function TwoHousesSection() {
           >
             One Group, Two Creative
             <br />
-            Houses<span style={{ color: "#E63946", fontStyle: "normal" }}>.</span>
+            Houses<span style={{ color: "#E63946" }}>.</span>
           </h2>
 
           <p
@@ -288,7 +288,8 @@ export default function TwoHousesSection() {
                   style={{
                     fontFamily: "var(--font-serif)",
                     fontSize: "1.5rem",
-                    fontStyle: "italic",
+                    fontStyle: "normal",
+                    fontWeight: 500,
                     color: "rgba(234, 232, 228, 0.45)",
                   }}
                 >
@@ -500,7 +501,8 @@ export default function TwoHousesSection() {
                   style={{
                     fontFamily: "var(--font-serif)",
                     fontSize: "1.5rem",
-                    fontStyle: "italic",
+                    fontStyle: "normal",
+                    fontWeight: 500,
                     color: "rgba(234, 232, 228, 0.45)",
                   }}
                 >

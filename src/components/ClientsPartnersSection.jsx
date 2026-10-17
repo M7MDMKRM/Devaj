@@ -271,13 +271,13 @@ export default function ClientsPartnersSection() {
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
                 color: "#111111",
-                fontWeight: 700,
-                fontStyle: "italic",
+                fontWeight: 500,
+                fontStyle: "normal",
                 margin: 0,
               }}
             >
               Brands We Have Delivered For
-              <span style={{ color: "#E63946", fontStyle: "normal" }}>.</span>
+              <span style={{ color: "#E63946" }}>.</span>
             </h2>
           </div>
 
@@ -1126,8 +1126,8 @@ export default function ClientsPartnersSection() {
         .modal-title-serif {
           font-family: var(--font-serif);
           font-size: 2.3rem;
-          font-weight: 700;
-          font-style: italic;
+          font-weight: 500;
+          font-style: normal;
           color: #111111;
           margin: 0 0 6px 0;
           letter-spacing: -0.02em;

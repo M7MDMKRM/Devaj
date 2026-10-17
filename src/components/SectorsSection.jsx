@@ -97,12 +97,12 @@ export default function SectorsSection() {
                 letterSpacing: "-0.025em",
                 color: "#111111",
                 margin: 0,
-                fontWeight: 700,
-                fontStyle: "italic",
+                fontWeight: 500,
+                fontStyle: "normal",
               }}
             >
               Sectors We Serve
-              <span style={{ color: "#E63946", fontStyle: "normal" }}>.</span>
+              <span style={{ color: "#E63946" }}>.</span>
             </h2>
           </div>
 

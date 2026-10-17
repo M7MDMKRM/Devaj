@@ -190,13 +190,13 @@ export default function ProjectCalculatorSection() {
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
                 color: "#111111",
-                fontWeight: 700,
-                fontStyle: "italic",
+                fontWeight: 500,
+                fontStyle: "normal",
                 margin: 0,
               }}
             >
               Which house fits your story
-              <span style={{ color: "#E63946", fontStyle: "normal" }}>?</span>
+              <span style={{ color: "#E63946" }}>?</span>
             </h2>
 
             <p
@@ -1485,8 +1485,8 @@ export default function ProjectCalculatorSection() {
         .investment-amount-val {
           font-family: var(--font-serif);
           font-size: clamp(2.3rem, 2.8vw, 3.2rem);
-          font-weight: 700;
-          font-style: italic;
+          font-weight: 500;
+          font-style: normal;
           color: #111111;
           letter-spacing: -0.03em;
           line-height: 1.05;
@@ -1689,8 +1689,8 @@ export default function ProjectCalculatorSection() {
         .payment-modal-title {
           font-family: var(--font-serif);
           font-size: 2.1rem;
-          font-weight: 700;
-          font-style: italic;
+          font-weight: 500;
+          font-style: normal;
           color: #111111;
           margin: 0 0 8px 0;
         }
@@ -1952,8 +1952,8 @@ export default function ProjectCalculatorSection() {
         .success-title {
           font-family: var(--font-serif);
           font-size: 2.2rem;
-          font-weight: 700;
-          font-style: italic;
+          font-weight: 500;
+          font-style: normal;
           color: #111111;
           margin: 0 0 10px 0;
         }

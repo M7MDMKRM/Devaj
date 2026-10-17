@@ -129,13 +129,13 @@ export default function Home() {
                   lineHeight: 1.1,
                   letterSpacing: "-0.025em",
                   color: "#111111",
-                  fontWeight: 700,
-                  fontStyle: "italic",
+                  fontWeight: 500,
+                  fontStyle: "normal",
                   margin: 0,
                 }}
               >
                 Start your next production with Devaj
-                <span style={{ color: "#E63946", fontStyle: "normal" }}>.</span>
+                <span style={{ color: "#E63946" }}>.</span>
               </h2>
               <p
                 style={{
