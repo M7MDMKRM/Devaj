@@ -79,39 +79,32 @@ export default function AboutGroupSection() {
               </h2>
             </div>
 
-            {/* Cohesive Narrative Paragraphs - Uniform Font Style & Size */}
+            {/* Cohesive Narrative Paragraphs - Large, Bold & Editorial */}
             <div className="about-narrative-flow">
-              {/* Paragraph 1: Foundation & Identity */}
+              {/* Paragraph 1: Foundation & Identity (Large Manifesto Lead) */}
               <div className={`about-anim-item delay-3 ${inView ? "is-in-view" : ""}`}>
-                <p className="about-narrative-p">
-                  <strong>Devaj Group</strong> is an independent media and cinematic production powerhouse headquartered in Cairo, Egypt. Built on the conviction that high-impact visual storytelling demands both relentless creative agility and uncompromising optical precision, the group unites two autonomous, specialized creative houses under a singular creative vision: <strong>Devaj Productions</strong> and <strong>Devaj Films</strong>.
+                <p className="about-narrative-p p-lead">
+                  <strong>Devaj Group</strong> is an independent media and cinematic production powerhouse headquartered in Cairo, Egypt. Founded on the principle that high-impact visual storytelling demands both relentless creative agility and optical mastery, the group unites two autonomous creative houses under one singular vision: <strong>Devaj Productions</strong> and <strong>Devaj Films</strong>.
                 </p>
               </div>
 
-              {/* Paragraph 2: Dual Specialization */}
+              {/* Paragraph 2: Dual Engine & In-House Cairo Campus */}
               <div className={`about-anim-item delay-4 ${inView ? "is-in-view" : ""}`}>
                 <p className="about-narrative-p">
-                  Through <strong>Devaj Productions</strong>, the group engineers high-converting commercial reels, digital-first brand narratives, and dynamic visual campaigns tailored for modern enterprises seeking market velocity and audience resonance. In parallel, <strong>Devaj Films</strong> operates as an enterprise-grade cinematic house, directing large-scale television commercials, corporate documentaries, and narrative brand cinema with large-format optics and world-class direction.
+                  Through <strong>Devaj Productions</strong>, we engineer high-converting commercial reels and agile social campaigns with rapid market velocity. In parallel, <strong>Devaj Films</strong> directs enterprise television commercials, corporate documentaries, and large-scale cinema. Every frame is backed by our dedicated Cairo production campus—housing full soundstages, Arri LF and RED cinema optics, and in-house color and sound design suites.
                 </p>
               </div>
 
-              {/* Paragraph 3: Proprietary Cairo Infrastructure */}
+              {/* Paragraph 3: Market Trust & Proven Track Record */}
               <div className={`about-anim-item delay-5 ${inView ? "is-in-view" : ""}`}>
                 <p className="about-narrative-p">
-                  Operating from our dedicated Cairo production campus, Devaj Group manages a comprehensive, proprietary in-house pipeline. From concept development and scriptwriting to dedicated soundstages, Arri and RED optical packages, advanced color grading suites, and spatial sound design, every frame is crafted and mastered under one roof without third-party dependencies.
-                </p>
-              </div>
-
-              {/* Paragraph 4: Proven Market Trust */}
-              <div className={`about-anim-item delay-6 ${inView ? "is-in-view" : ""}`}>
-                <p className="about-narrative-p">
-                  Trusted by premier regional and global brands—including <strong>Porsche Egypt</strong>, <strong>Clorox</strong>, and <strong>Eskan Misr</strong>—Devaj Group continues to set the benchmark for modern media production, delivering visual experiences that elevate brand value and captivate audiences across the Middle East.
+                  Trusted by market-defining brands—including <strong>Porsche Egypt</strong>, <strong>Clorox</strong>, and <strong>Eskan Misr</strong>—Devaj Group fuses cinematic optical mastery with commercial execution speed from the first frame of an idea to the final cut.
                 </p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className={`about-anim-item delay-7 ${inView ? "is-in-view" : ""}`}>
+            <div className={`about-anim-item delay-6 ${inView ? "is-in-view" : ""}`}>
               <div className="about-cta-row">
                 <a href="#houses" className="about-cta-primary">
                   <span>Explore The Two Houses</span>
@@ -196,11 +189,10 @@ export default function AboutGroupSection() {
 
         .delay-1 { transition-delay: 0.08s; }
         .delay-2 { transition-delay: 0.18s; }
-        .delay-3 { transition-delay: 0.28s; }
-        .delay-4 { transition-delay: 0.38s; }
-        .delay-5 { transition-delay: 0.48s; }
-        .delay-6 { transition-delay: 0.58s; }
-        .delay-7 { transition-delay: 0.68s; }
+        .delay-3 { transition-delay: 0.30s; }
+        .delay-4 { transition-delay: 0.44s; }
+        .delay-5 { transition-delay: 0.58s; }
+        .delay-6 { transition-delay: 0.72s; }
 
         /* Right Column Image Card (Reveals in Sync with Text) */
         .about-visual-col {
@@ -289,27 +281,34 @@ export default function AboutGroupSection() {
           color: #E63946;
         }
 
-        /* Unified Narrative Typography - Same Font & Same Size */
+        /* Unified Narrative Typography - Large, Bold, Luxurious & High-Contrast */
         .about-narrative-flow {
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          margin-bottom: 32px;
+          gap: 22px;
+          margin-bottom: 38px;
         }
 
         .about-narrative-p {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(1rem, 1.08vw, 1.05rem);
-          line-height: 1.8;
-          color: rgba(21, 21, 21, 0.76);
+          font-size: clamp(1.18rem, 1.34vw, 1.32rem);
+          line-height: 1.74;
+          color: #242424;
           margin: 0;
-          letter-spacing: -0.005em;
+          letter-spacing: -0.012em;
           font-weight: 400;
+        }
+
+        .about-narrative-p.p-lead {
+          font-size: clamp(1.26rem, 1.5vw, 1.44rem);
+          line-height: 1.68;
+          color: #111111;
+          font-weight: 500;
         }
 
         .about-narrative-p strong {
           color: #111111;
-          font-weight: 700;
+          font-weight: 800;
         }
 
         /* Action Buttons */
