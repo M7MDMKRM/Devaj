@@ -125,29 +125,6 @@ export default function AboutGroupSection() {
                 alt="Devaj Group Official Corporate Headquarters in Cairo"
                 className="about-studio-image"
               />
-              <div className="about-image-overlay" />
-
-              {/* Top Floating Badge */}
-              <div className="about-logo-badge">
-                <img
-                  src="/images/devaj-logo.png"
-                  alt="Devaj Group"
-                  className="about-badge-logo-img"
-                />
-                <div className="badge-text-box">
-                  <span className="badge-title">Devaj Group Headquarters</span>
-                  <span className="badge-subtitle">Cairo Production Soundstages &amp; Creative Campus</span>
-                </div>
-              </div>
-
-              {/* Bottom Floating Stats Tag */}
-              <div className="about-bottom-tag">
-                <div className="status-live-dot" />
-                <div>
-                  <span className="tag-headline">From First Frame to Final Cut</span>
-                  <span className="tag-sub">Arri &amp; Red Optics // Dedicated Editing &amp; Foley Suites</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
