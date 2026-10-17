@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowUpRight, Film, Clapperboard, Award } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function AboutGroupSection() {
   const [inView, setInView] = useState(false);
@@ -15,8 +15,8 @@ export default function AboutGroupSection() {
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px",
       }
     );
 
@@ -57,9 +57,9 @@ export default function AboutGroupSection() {
         {/* Mobile: Image appears first (order: 1), Text appears second (order: 2) */}
         {/* =================================================================== */}
         <div className="about-split-grid">
-          {/* 1. Content Column (Staggered Line-by-Line Reveal from Left) */}
+          {/* 1. Content Column: Pure cohesive editorial narrative about Devaj Group */}
           <div className="about-content-col">
-            {/* Line 1: Eyebrow Pill */}
+            {/* Eyebrow Pill */}
             <div className={`about-anim-item delay-1 ${inView ? "is-in-view" : ""}`}>
               <div className="about-eyebrow-pill">
                 <span className="eyebrow-dot" />
@@ -69,7 +69,7 @@ export default function AboutGroupSection() {
               </div>
             </div>
 
-            {/* Line 2: Editorial Dual-Typography Headline matching reference image */}
+            {/* Headline matching header typography */}
             <div className={`about-anim-item delay-2 ${inView ? "is-in-view" : ""}`}>
               <h2 className="about-headline">
                 <span className="headline-serif-part">One group, two creative houses</span>
@@ -79,90 +79,39 @@ export default function AboutGroupSection() {
               </h2>
             </div>
 
-            {/* Line 3: Refined Lead Narrative */}
-            <div className={`about-anim-item delay-3 ${inView ? "is-in-view" : ""}`}>
-              <p className="about-lead-paragraph">
-                We are <strong className="brand-accent-name">Devaj Group</strong> — an independent media production group built around two autonomous, highly specialized creative houses: <span className="house-badge red-badge">Devaj Productions</span> and <span className="house-badge dark-badge">Devaj Films</span>.
-              </p>
-            </div>
+            {/* Cohesive Narrative Paragraphs - Uniform Font Style & Size */}
+            <div className="about-narrative-flow">
+              {/* Paragraph 1: Foundation & Identity */}
+              <div className={`about-anim-item delay-3 ${inView ? "is-in-view" : ""}`}>
+                <p className="about-narrative-p">
+                  <strong>Devaj Group</strong> is an independent media and cinematic production powerhouse headquartered in Cairo, Egypt. Built on the conviction that high-impact visual storytelling demands both relentless creative agility and uncompromising optical precision, the group unites two autonomous, specialized creative houses under a singular creative vision: <strong>Devaj Productions</strong> and <strong>Devaj Films</strong>.
+                </p>
+              </div>
 
-            {/* Line 4: Narrative Accent Callout */}
-            <div className={`about-anim-item delay-4 ${inView ? "is-in-view" : ""}`}>
-              <div className="about-editorial-callout">
-                <p className="about-body-paragraph">
-                  Covering the complete journey of visual storytelling from the first frame of an idea to the final cut. Whether engineering high-converting commercial reels or directing enterprise TVCs and brand documentaries, our teams fuse cinematic optical mastery with commercial execution speed.
+              {/* Paragraph 2: Dual Specialization */}
+              <div className={`about-anim-item delay-4 ${inView ? "is-in-view" : ""}`}>
+                <p className="about-narrative-p">
+                  Through <strong>Devaj Productions</strong>, the group engineers high-converting commercial reels, digital-first brand narratives, and dynamic visual campaigns tailored for modern enterprises seeking market velocity and audience resonance. In parallel, <strong>Devaj Films</strong> operates as an enterprise-grade cinematic house, directing large-scale television commercials, corporate documentaries, and narrative brand cinema with large-format optics and world-class direction.
+                </p>
+              </div>
+
+              {/* Paragraph 3: Proprietary Cairo Infrastructure */}
+              <div className={`about-anim-item delay-5 ${inView ? "is-in-view" : ""}`}>
+                <p className="about-narrative-p">
+                  Operating from our dedicated Cairo production campus, Devaj Group manages a comprehensive, proprietary in-house pipeline. From concept development and scriptwriting to dedicated soundstages, Arri and RED optical packages, advanced color grading suites, and spatial sound design, every frame is crafted and mastered under one roof without third-party dependencies.
+                </p>
+              </div>
+
+              {/* Paragraph 4: Proven Market Trust */}
+              <div className={`about-anim-item delay-6 ${inView ? "is-in-view" : ""}`}>
+                <p className="about-narrative-p">
+                  Trusted by premier regional and global brands—including <strong>Porsche Egypt</strong>, <strong>Clorox</strong>, and <strong>Eskan Misr</strong>—Devaj Group continues to set the benchmark for modern media production, delivering visual experiences that elevate brand value and captivate audiences across the Middle East.
                 </p>
               </div>
             </div>
 
-            {/* Three Brand Pillars - Lines 5, 6, 7 */}
-            <div className="about-pillars-grid">
-              {/* Pillar 01 */}
-              <div className={`about-anim-item delay-5 ${inView ? "is-in-view" : ""}`}>
-                <div className="about-pillar-card">
-                  <div className="pillar-icon-box">
-                    <Film size={20} strokeWidth={2.2} />
-                  </div>
-                  <div className="pillar-details">
-                    <div className="pillar-header-row">
-                      <h4 className="pillar-title">Two Specialized Houses</h4>
-                      <span className="pillar-badge-tag">Dual Engine</span>
-                    </div>
-                    <p className="pillar-desc">
-                      <strong>Devaj Productions</strong> for agile commercial reels &amp; <strong>Devaj Films</strong> for enterprise cinema.
-                    </p>
-                  </div>
-                  <div className="pillar-hover-arrow">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Pillar 02 */}
-              <div className={`about-anim-item delay-6 ${inView ? "is-in-view" : ""}`}>
-                <div className="about-pillar-card">
-                  <div className="pillar-icon-box">
-                    <Clapperboard size={20} strokeWidth={2.2} />
-                  </div>
-                  <div className="pillar-details">
-                    <div className="pillar-header-row">
-                      <h4 className="pillar-title">End-to-End Delivery</h4>
-                      <span className="pillar-badge-tag">Full Pipeline</span>
-                    </div>
-                    <p className="pillar-desc">
-                      Complete in-house pipeline: scriptwriting, casting, soundstages, color grading &amp; audio master.
-                    </p>
-                  </div>
-                  <div className="pillar-hover-arrow">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Pillar 03 */}
-              <div className={`about-anim-item delay-7 ${inView ? "is-in-view" : ""}`}>
-                <div className="about-pillar-card">
-                  <div className="pillar-icon-box">
-                    <Award size={20} strokeWidth={2.2} />
-                  </div>
-                  <div className="pillar-details">
-                    <div className="pillar-header-row">
-                      <h4 className="pillar-title">Proven Market Trust</h4>
-                      <span className="pillar-badge-tag">Tier-1 Clients</span>
-                    </div>
-                    <p className="pillar-desc">
-                      Trusted partner to industry leaders including <strong>Porsche Egypt</strong>, <strong>Clorox</strong>, and <strong>Eskan Misr</strong>.
-                    </p>
-                  </div>
-                  <div className="pillar-hover-arrow">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Line 8: Action Buttons */}
-            <div className={`about-anim-item delay-8 ${inView ? "is-in-view" : ""}`}>
+            {/* Action Buttons */}
+            <div className={`about-anim-item delay-7 ${inView ? "is-in-view" : ""}`}>
               <div className="about-cta-row">
                 <a href="#houses" className="about-cta-primary">
                   <span>Explore The Two Houses</span>
@@ -175,7 +124,7 @@ export default function AboutGroupSection() {
             </div>
           </div>
 
-          {/* 2. Visual Column: Larger Devaj Headquarters Building (Slides from Right) */}
+          {/* 2. Visual Column: Devaj Headquarters Building (Aligned with Text Column) */}
           <div className={`about-visual-col ${inView ? "is-in-view" : ""}`}>
             <div className="about-image-card">
               <img
@@ -217,46 +166,60 @@ export default function AboutGroupSection() {
       <style jsx>{`
         .about-split-grid {
           display: grid;
-          grid-template-columns: 1fr 1.08fr;
-          gap: 64px;
+          grid-template-columns: 1.06fr 0.94fr;
+          gap: 68px;
           align-items: center;
         }
 
-        /* Staggered Scroll Animations (Text from Left, Image from Right) */
+        .about-content-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        /* Staggered Scroll-Triggered Reveal Animations */
         .about-anim-item {
           opacity: 0;
-          transform: translateX(-48px);
+          transform: translateY(30px);
+          filter: blur(5px);
           transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-          will-change: opacity, transform;
+                      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                      filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform, filter;
         }
 
         .about-anim-item.is-in-view {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
+          filter: blur(0);
         }
 
         .delay-1 { transition-delay: 0.08s; }
-        .delay-2 { transition-delay: 0.22s; }
-        .delay-3 { transition-delay: 0.36s; }
-        .delay-4 { transition-delay: 0.5s; }
-        .delay-5 { transition-delay: 0.65s; }
-        .delay-6 { transition-delay: 0.78s; }
-        .delay-7 { transition-delay: 0.92s; }
-        .delay-8 { transition-delay: 1.06s; }
+        .delay-2 { transition-delay: 0.18s; }
+        .delay-3 { transition-delay: 0.28s; }
+        .delay-4 { transition-delay: 0.38s; }
+        .delay-5 { transition-delay: 0.48s; }
+        .delay-6 { transition-delay: 0.58s; }
+        .delay-7 { transition-delay: 0.68s; }
 
-        /* Right Column Image Card (Slides from Right) */
+        /* Right Column Image Card (Reveals in Sync with Text) */
         .about-visual-col {
           opacity: 0;
-          transform: translateX(64px);
-          transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
-                      transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-          will-change: opacity, transform;
+          transform: translateY(36px) scale(0.985);
+          filter: blur(6px);
+          transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+                      transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+                      filter 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
+          will-change: opacity, transform, filter;
+          height: 100%;
+          display: flex;
+          align-items: center;
         }
 
         .about-visual-col.is-in-view {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0) scale(1);
+          filter: blur(0);
         }
 
         /* Eyebrow Pill */
@@ -303,19 +266,19 @@ export default function AboutGroupSection() {
           color: #E63946;
         }
 
-        /* Headline: Dual-Typography matching reference image */
+        /* Headline: Dual-Typography matching reference */
         .about-headline {
           display: flex;
           flex-direction: column;
           gap: 4px;
-          margin: 0 0 24px 0;
+          margin: 0 0 26px 0;
           line-height: 1.12;
         }
 
         .headline-serif-part,
         .headline-sans-part {
           font-family: var(--font-serif);
-          font-size: clamp(2.3rem, 3.6vw, 3.5rem);
+          font-size: clamp(2.3rem, 3.5vw, 3.4rem);
           font-weight: 500;
           font-style: normal;
           letter-spacing: -0.025em;
@@ -326,167 +289,27 @@ export default function AboutGroupSection() {
           color: #E63946;
         }
 
-        /* Lead Paragraph */
-        .about-lead-paragraph {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(1.05rem, 1.18vw, 1.16rem);
-          line-height: 1.72;
-          color: #242424;
-          margin-bottom: 20px;
-        }
-
-        .brand-accent-name {
-          color: #111111;
-          font-weight: 800;
-        }
-
-        .house-badge {
-          display: inline-block;
-          padding: 2px 10px;
-          border-radius: 8px;
-          font-weight: 700;
-          font-size: 0.94em;
-          line-height: 1.4;
-          letter-spacing: -0.01em;
-          vertical-align: baseline;
-        }
-
-        .red-badge {
-          background: rgba(230, 57, 70, 0.08);
-          color: #C92A37;
-          border: 1px solid rgba(230, 57, 70, 0.22);
-        }
-
-        .dark-badge {
-          background: rgba(17, 17, 17, 0.06);
-          color: #111111;
-          border: 1px solid rgba(17, 17, 17, 0.16);
-        }
-
-        /* Narrative Callout */
-        .about-editorial-callout {
-          position: relative;
-          padding: 4px 0 4px 20px;
-          border-left: 3px solid #E63946;
+        /* Unified Narrative Typography - Same Font & Same Size */
+        .about-narrative-flow {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
           margin-bottom: 32px;
         }
 
-        .about-body-paragraph {
+        .about-narrative-p {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(0.95rem, 1.04vw, 1.02rem);
-          line-height: 1.68;
-          color: rgba(21, 21, 21, 0.72);
+          font-size: clamp(1rem, 1.08vw, 1.05rem);
+          line-height: 1.8;
+          color: rgba(21, 21, 21, 0.76);
           margin: 0;
+          letter-spacing: -0.005em;
+          font-weight: 400;
         }
 
-        /* Pillars Grid */
-        .about-pillars-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          margin-bottom: 36px;
-        }
-
-        .about-pillar-card {
-          display: flex;
-          align-items: center;
-          gap: 18px;
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 20px;
-          padding: 18px 24px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-          position: relative;
-        }
-
-        .about-pillar-card:hover {
-          transform: translateX(8px);
-          border-color: rgba(230, 57, 70, 0.4);
-          box-shadow: 0 12px 32px rgba(230, 57, 70, 0.08), 0 4px 14px rgba(0, 0, 0, 0.04);
-        }
-
-        .pillar-icon-box {
-          width: 48px;
-          height: 48px;
-          border-radius: 14px;
-          background: #151515;
-          color: #ffffff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-          transition: all 0.3s ease;
-        }
-
-        .about-pillar-card:hover .pillar-icon-box {
-          background: #E63946;
-          color: #ffffff;
-          transform: scale(1.06);
-          box-shadow: 0 8px 22px rgba(230, 57, 70, 0.35);
-        }
-
-        .pillar-details {
-          flex: 1;
-        }
-
-        .pillar-header-row {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          flex-wrap: wrap;
-          margin-bottom: 4px;
-        }
-
-        .pillar-title {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 1.02rem;
-          font-weight: 800;
-          letter-spacing: -0.015em;
+        .about-narrative-p strong {
           color: #111111;
-          margin: 0;
-        }
-
-        .pillar-badge-tag {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.68rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: #E63946;
-          background: rgba(230, 57, 70, 0.08);
-          padding: 3px 8px;
-          border-radius: 6px;
-        }
-
-        .pillar-desc {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.88rem;
-          line-height: 1.5;
-          color: rgba(21, 21, 21, 0.65);
-          margin: 0;
-        }
-
-        .pillar-hover-arrow {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: rgba(0, 0, 0, 0.04);
-          color: #111111;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          transition: all 0.3s ease;
-          opacity: 0.5;
-        }
-
-        .about-pillar-card:hover .pillar-hover-arrow {
-          background: #151515;
-          color: #ffffff;
-          opacity: 1;
-          transform: translateX(2px) translateY(-2px);
+          font-weight: 700;
         }
 
         /* Action Buttons */
@@ -495,6 +318,7 @@ export default function AboutGroupSection() {
           flex-wrap: wrap;
           align-items: center;
           gap: 16px;
+          margin-top: 6px;
         }
 
         .about-cta-primary {
@@ -543,13 +367,13 @@ export default function AboutGroupSection() {
           transform: translateY(-2px);
         }
 
-        /* Large Building Image Card */
+        /* Large Building Image Card - Perfectly Proportioned with Text Column */
         .about-image-card {
           position: relative;
           border-radius: 36px;
           overflow: hidden;
-          box-shadow: 0 35px 80px rgba(0, 0, 0, 0.18), 0 10px 30px rgba(0, 0, 0, 0.1);
-          aspect-ratio: 4 / 3.4;
+          box-shadow: 0 35px 80px rgba(0, 0, 0, 0.16), 0 10px 30px rgba(0, 0, 0, 0.08);
+          aspect-ratio: 4 / 3.8;
           min-height: 580px;
           width: 100%;
           background: #111111;
@@ -575,7 +399,7 @@ export default function AboutGroupSection() {
             to bottom,
             rgba(0, 0, 0, 0.2) 0%,
             transparent 50%,
-            rgba(0, 0, 0, 0.7) 100%
+            rgba(0, 0, 0, 0.72) 100%
           );
         }
 
@@ -588,7 +412,7 @@ export default function AboutGroupSection() {
           gap: 12px;
           padding: 10px 18px;
           border-radius: 9999px;
-          background: rgba(18, 18, 18, 0.75);
+          background: rgba(18, 18, 18, 0.78);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -705,10 +529,6 @@ export default function AboutGroupSection() {
             left: 14px;
             right: 14px;
             padding: 10px 14px;
-          }
-          .about-pillar-card {
-            padding: 14px 18px;
-            gap: 14px;
           }
           .about-image-card {
             min-height: 320px;
