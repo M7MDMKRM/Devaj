@@ -608,20 +608,6 @@ export default function TwoHousesSection() {
         </div>
       </div>
 
-      {/* Bottom Ambient Dark Transition Base */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "180px",
-          background: "linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.95) 70%, #0d0d0d 100%)",
-          pointerEvents: "none",
-          zIndex: 1,
-        }}
-      />
-
       {/* Responsive Stacking Style */}
       <style jsx>{`
         @media (max-width: 900px) {

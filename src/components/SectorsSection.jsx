@@ -48,8 +48,8 @@ export default function SectorsSection() {
         marginTop: "-64px",
         borderTopLeftRadius: "52px",
         borderTopRightRadius: "52px",
-        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.55), 0 -12px 30px rgba(0, 0, 0, 0.35)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.6)",
+        boxShadow: "0 -20px 50px rgba(0, 0, 0, 0.05), 0 -6px 16px rgba(0, 0, 0, 0.03)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.06)",
         padding: "120px 0 145px",
         overflow: "hidden",
       }}
