@@ -520,7 +520,7 @@ export default function DevajProductionPage() {
       <section
         id="services"
         style={{
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "#F7F6F2",
           borderTop: "1px solid rgba(0, 0, 0, 0.08)",
           borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           padding: "115px 40px 130px",
@@ -570,10 +570,11 @@ export default function DevajProductionPage() {
               <div
                 key={idx}
                 style={{
-                  background: "#F7F6F2",
+                  background: "#ffffff",
                   borderRadius: "24px",
                   padding: "36px",
                   border: "1px solid rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.03)",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
@@ -905,7 +906,7 @@ export default function DevajProductionPage() {
       <section
         id="contact"
         style={{
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "#F7F6F2",
           borderTop: "1px solid rgba(0, 0, 0, 0.08)",
           padding: "120px 40px 140px",
         }}

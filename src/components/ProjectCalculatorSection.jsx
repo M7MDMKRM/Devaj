@@ -124,7 +124,7 @@ export default function ProjectCalculatorSection() {
     <section
       id="calculator"
       style={{
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#F7F6F2",
         color: "#151515",
         position: "relative",
         zIndex: 26,

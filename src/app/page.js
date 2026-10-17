@@ -85,7 +85,7 @@ export default function Home() {
       <footer
         id="connect"
         style={{
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "#F7F6F2",
           color: "#151515",
           position: "relative",
           zIndex: 30,
@@ -129,13 +129,13 @@ export default function Home() {
                   lineHeight: 1.1,
                   letterSpacing: "-0.025em",
                   color: "#111111",
-                  fontWeight: 500,
-                  fontStyle: "normal",
+                  fontWeight: 700,
+                  fontStyle: "italic",
                   margin: 0,
                 }}
               >
                 Start your next production with Devaj
-                <span style={{ color: "#E63946" }}>.</span>
+                <span style={{ color: "#E63946", fontStyle: "normal" }}>.</span>
               </h2>
               <p
                 style={{
