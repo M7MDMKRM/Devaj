@@ -17,6 +17,11 @@ import {
   Calendar,
   Layers,
   Zap,
+  Plus,
+  Minus,
+  Check,
+  Sliders,
+  Award,
 } from "lucide-react";
 
 export default function ProjectCalculatorSection() {
@@ -54,12 +59,12 @@ export default function ProjectCalculatorSection() {
 
   // Post-production add-ons definition
   const postOptions = [
-    { id: "color", label: "Master Color Grade", price: 6500 },
-    { id: "sound", label: "Sound Design & Foley", price: 5500 },
-    { id: "vfx", label: "VFX & Motion Graphics", price: 11000 },
-    { id: "vo", label: "Studio Voice-Over", price: 5000 },
-    { id: "3d", label: "3D Product Modeling", price: 13500 },
-    { id: "fast", label: "48h Rush Delivery", price: 9000 },
+    { id: "color", label: "Master Color Grade", price: 6500, priceTag: "+6.5k" },
+    { id: "sound", label: "Sound Design & Foley", price: 5500, priceTag: "+5.5k" },
+    { id: "vfx", label: "VFX & Motion Graphics", price: 11000, priceTag: "+11k" },
+    { id: "vo", label: "Studio Voice-Over", price: 5000, priceTag: "+5k" },
+    { id: "3d", label: "3D Product Modeling", price: 13500, priceTag: "+13.5k" },
+    { id: "fast", label: "48h Rush Delivery", price: 9000, priceTag: "+9k" },
   ];
 
   const togglePostOption = (id) => {
@@ -74,11 +79,9 @@ export default function ProjectCalculatorSection() {
     let deliverableRate = 0;
 
     if (selectedHouse === "productions") {
-      // Agile commercial production
       dayRate = quality === "low" ? 22000 : 42000;
       deliverableRate = quality === "low" ? 3000 : 6000;
     } else {
-      // Large-scale cinema films
       dayRate = quality === "low" ? 48000 : 88000;
       deliverableRate = quality === "low" ? 6500 : 13000;
     }
@@ -103,7 +106,7 @@ export default function ProjectCalculatorSection() {
 
   // Handle Form Submission / Payment Confirmation
   const handleProceedToPayment = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setBookingRefNumber(`DVJ-${Math.floor(100000 + Math.random() * 900000)}`);
     setPaymentModalOpen(true);
     setPaymentStep("form");
@@ -126,13 +129,13 @@ export default function ProjectCalculatorSection() {
         position: "relative",
         zIndex: 26,
         borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-        padding: "115px 0 130px",
+        padding: "120px 0 140px",
         overflow: "hidden",
       }}
     >
       <div
         style={{
-          maxWidth: "1560px",
+          maxWidth: "1520px",
           margin: "0 auto",
           padding: "0 40px",
           position: "relative",
@@ -140,9 +143,9 @@ export default function ProjectCalculatorSection() {
         }}
       >
         {/* =================================================================== */}
-        {/* 1. SECTION HEADLINE (Playfair Display Italic + Red Accent)          */}
+        {/* 1. EDITORIAL HEADER & TITLE                                         */}
         {/* =================================================================== */}
-        <div style={{ marginBottom: "58px" }}>
+        <div style={{ marginBottom: "56px" }}>
           <div
             style={{
               display: "inline-flex",
@@ -154,7 +157,7 @@ export default function ProjectCalculatorSection() {
               textTransform: "uppercase",
               letterSpacing: "0.14em",
               color: "#E63946",
-              marginBottom: "14px",
+              marginBottom: "16px",
             }}
           >
             <span
@@ -163,12 +166,12 @@ export default function ProjectCalculatorSection() {
                 height: "8px",
                 borderRadius: "50%",
                 backgroundColor: "#E63946",
-                boxShadow: "0 0 10px #E63946",
+                boxShadow: "0 0 10px rgba(230, 57, 70, 0.5)",
               }}
             />
-            <span>Project Calculator</span>
+            <span>Production Configurator</span>
             <span style={{ fontSize: "1.1rem" }}>•</span>
-            <span style={{ color: "rgba(21, 21, 21, 0.5)", fontWeight: 600 }}>Instant Estimate</span>
+            <span style={{ color: "rgba(21, 21, 21, 0.5)", fontWeight: 600 }}>Live Budget Estimator</span>
           </div>
 
           <div
@@ -177,7 +180,7 @@ export default function ProjectCalculatorSection() {
               flexWrap: "wrap",
               justifyContent: "space-between",
               alignItems: "flex-end",
-              gap: "24px",
+              gap: "28px",
             }}
           >
             <h2
@@ -206,150 +209,295 @@ export default function ProjectCalculatorSection() {
                 margin: 0,
               }}
             >
-              Build a starting estimate, then talk to our producers. Every production is custom; this gives us a smarter place to begin.
+              Configure your creative scale, shooting schedule, and post-production craft. Our executive producers will calibrate the exact brief with you.
             </p>
           </div>
         </div>
 
         {/* =================================================================== */}
-        {/* 2. THE 3-COLUMN INTERACTIVE CALCULATOR ENGINE                        */}
+        {/* 2. MAIN 2-ZONE LUXURY CONFIGURATOR LAYOUT                           */}
         {/* =================================================================== */}
-        <div className="calculator-layout-card reveal-scale">
-          {/* COLUMN 1: Two Houses Selector (Devaj Productions vs Devaj Films) */}
-          <div className="calc-col-houses reveal-from-left delay-100">
-            <span className="col-eyebrow-label">Select Creative House</span>
+        <div className="luxury-calculator-grid reveal-scale">
+          {/* ================================================================= */}
+          {/* ZONE A: INTERACTIVE CONFIGURATOR (LEFT 64%)                       */}
+          {/* ================================================================= */}
+          <div className="config-builder-column">
+            {/* STEP 1: SELECT CREATIVE HOUSE (Dual Horizontal Cards) */}
+            <div className="config-card-section">
+              <div className="section-head-row">
+                <div className="step-tag-pill">
+                  <span className="step-number">01</span>
+                  <span className="step-label">Creative House</span>
+                </div>
+                <span className="section-tip">Choose the engine best aligned with your deliverable</span>
+              </div>
 
-            <div className="houses-toggle-stack">
-              {/* Devaj Productions Card */}
-              <button
-                type="button"
-                onClick={() => setSelectedHouse("productions")}
-                className={`house-select-btn ${selectedHouse === "productions" ? "active" : "dimmed"}`}
-              >
-                <div className="house-btn-header">
-                  <div className="house-brand-title">
-                    <span className="brand-devaj">Devaj</span>
-                    <span className="brand-suffix productions">Productions</span>
+              <div className="houses-dual-grid">
+                {/* Devaj Productions Card */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedHouse("productions")}
+                  className={`house-tier-card ${selectedHouse === "productions" ? "selected" : ""}`}
+                >
+                  <div className="tier-card-header">
+                    <div className="tier-icon-wrap productions">
+                      <Clapperboard size={20} />
+                    </div>
+                    <div className="tier-radio-indicator">
+                      {selectedHouse === "productions" && <Check size={13} color="#ffffff" strokeWidth={3} />}
+                    </div>
                   </div>
-                  <div className="house-active-indicator">
-                    <Clapperboard size={15} />
+
+                  <div className="tier-brand-title">
+                    <span className="tier-brand-name">Devaj</span>
+                    <span className="tier-brand-sub productions">Productions</span>
+                  </div>
+
+                  <span className="tier-badge">Social • Commercials • Agile</span>
+
+                  <p className="tier-description">
+                    Fast, high-impact storytelling for digital campaigns, brand reels, social-first content & rapid turnarounds.
+                  </p>
+
+                  <div className="tier-footer-specs">
+                    <span>⚡ 5-Day Delivery</span>
+                    <span>•</span>
+                    <span>4K Cinema Setup</span>
+                  </div>
+                </button>
+
+                {/* Devaj Films Card */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedHouse("films")}
+                  className={`house-tier-card ${selectedHouse === "films" ? "selected" : ""}`}
+                >
+                  <div className="tier-card-header">
+                    <div className="tier-icon-wrap films">
+                      <Film size={20} />
+                    </div>
+                    <div className="tier-radio-indicator">
+                      {selectedHouse === "films" && <Check size={13} color="#ffffff" strokeWidth={3} />}
+                    </div>
+                  </div>
+
+                  <div className="tier-brand-title">
+                    <span className="tier-brand-name">Devaj</span>
+                    <span className="tier-brand-sub films">Films</span>
+                  </div>
+
+                  <span className="tier-badge">Cinema • TVCs • Mega-Scale</span>
+
+                  <p className="tier-description">
+                    Master-grade cinematic productions with full crew, heavy-lift drone aerials, corporate epics & television commercials.
+                  </p>
+
+                  <div className="tier-footer-specs">
+                    <span>🎬 Full Crew & Grip</span>
+                    <span>•</span>
+                    <span>Arri / RED Anamorphic</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* STEP 2: PRODUCTION SCHEDULE & DELIVERABLES */}
+            <div className="config-card-section">
+              <div className="section-head-row">
+                <div className="step-tag-pill">
+                  <span className="step-number">02</span>
+                  <span className="step-label">Production Scope</span>
+                </div>
+                <span className="section-tip">Adjust on-set shooting days and final video deliverables</span>
+              </div>
+
+              <div className="sliders-twin-grid">
+                {/* Control 1: Shooting Days */}
+                <div className="slider-control-box">
+                  <div className="slider-title-row">
+                    <div>
+                      <span className="control-label">Shooting Schedule</span>
+                      <span className="control-subtext">On-set production days</span>
+                    </div>
+                    <div className="counter-stepper-wrap">
+                      <button
+                        type="button"
+                        aria-label="Decrease shooting days"
+                        onClick={() => setShootingDays((prev) => Math.max(1, prev - 1))}
+                        disabled={shootingDays <= 1}
+                        className="stepper-btn"
+                      >
+                        <Minus size={14} />
+                      </button>
+                      <span className="stepper-val">{shootingDays} {shootingDays === 1 ? "Day" : "Days"}</span>
+                      <button
+                        type="button"
+                        aria-label="Increase shooting days"
+                        onClick={() => setShootingDays((prev) => Math.min(10, prev + 1))}
+                        disabled={shootingDays >= 10}
+                        className="stepper-btn"
+                      >
+                        <Plus size={14} />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="slider-track-wrap">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="1"
+                      value={shootingDays}
+                      onChange={(e) => setShootingDays(Number(e.target.value))}
+                      className="studio-range-slider"
+                      aria-label="Select number of shooting days"
+                      style={{
+                        background: `linear-gradient(to right, #E63946 0%, #E63946 ${
+                          ((shootingDays - 1) / 9) * 100
+                        }%, #E9E7E0 ${((shootingDays - 1) / 9) * 100}%, #E9E7E0 100%)`,
+                      }}
+                    />
+                    <div className="slider-milestones">
+                      <span className={shootingDays === 1 ? "active" : ""}>1 Day</span>
+                      <span className={shootingDays === 2 ? "active" : ""}>2 Days</span>
+                      <span className={shootingDays === 5 ? "active" : ""}>5 Days</span>
+                      <span className={shootingDays === 10 ? "active" : ""}>10 Days</span>
+                    </div>
                   </div>
                 </div>
-                <p className="house-desc-text">
-                  Fast, agile content for brands that need to move. High-velocity social reels, commercials & products.
-                </p>
-              </button>
 
-              {/* Devaj Films Card */}
-              <button
-                type="button"
-                onClick={() => setSelectedHouse("films")}
-                className={`house-select-btn ${selectedHouse === "films" ? "active" : "dimmed"}`}
-              >
-                <div className="house-btn-header">
-                  <div className="house-brand-title">
-                    <span className="brand-devaj">Devaj</span>
-                    <span className="brand-suffix films">Films</span>
+                {/* Control 2: Deliverables */}
+                <div className="slider-control-box">
+                  <div className="slider-title-row">
+                    <div>
+                      <span className="control-label">Final Deliverables</span>
+                      <span className="control-subtext">Master cuts & aspect ratios</span>
+                    </div>
+                    <div className="counter-stepper-wrap">
+                      <button
+                        type="button"
+                        aria-label="Decrease deliverables"
+                        onClick={() => setDeliverables((prev) => Math.max(1, prev - 1))}
+                        disabled={deliverables <= 1}
+                        className="stepper-btn"
+                      >
+                        <Minus size={14} />
+                      </button>
+                      <span className="stepper-val">{deliverables} {deliverables === 1 ? "Cut" : "Cuts"}</span>
+                      <button
+                        type="button"
+                        aria-label="Increase deliverables"
+                        onClick={() => setDeliverables((prev) => Math.min(15, prev + 1))}
+                        disabled={deliverables >= 15}
+                        className="stepper-btn"
+                      >
+                        <Plus size={14} />
+                      </button>
+                    </div>
                   </div>
-                  <div className="house-active-indicator">
-                    <Film size={15} />
+
+                  <div className="slider-track-wrap">
+                    <input
+                      type="range"
+                      min="1"
+                      max="15"
+                      step="1"
+                      value={deliverables}
+                      onChange={(e) => setDeliverables(Number(e.target.value))}
+                      className="studio-range-slider"
+                      aria-label="Select number of deliverables"
+                      style={{
+                        background: `linear-gradient(to right, #E63946 0%, #E63946 ${
+                          ((deliverables - 1) / 14) * 100
+                        }%, #E9E7E0 ${((deliverables - 1) / 14) * 100}%, #E9E7E0 100%)`,
+                      }}
+                    />
+                    <div className="slider-milestones">
+                      <span className={deliverables === 1 ? "active" : ""}>1 Cut</span>
+                      <span className={deliverables === 4 ? "active" : ""}>4 Cuts</span>
+                      <span className={deliverables === 8 ? "active" : ""}>8 Cuts</span>
+                      <span className={deliverables === 15 ? "active" : ""}>15 Cuts</span>
+                    </div>
                   </div>
                 </div>
-                <p className="house-desc-text">
-                  Large-scale cinematic production with a full crew. Corporate documentaries, TVCs & brand films.
-                </p>
-              </button>
-            </div>
-          </div>
-
-          {/* COLUMN 2: Parameters (Days, Deliverables, Quality [Low/High], Post) */}
-          <div className="calc-col-params reveal-on-scroll delay-200">
-            {/* Range 1: Shooting Days */}
-            <div className="param-block">
-              <div className="param-header-row">
-                <span className="param-title">Shooting Days</span>
-                <span className="param-value-badge">{shootingDays} {shootingDays === 1 ? "Day" : "Days"}</span>
-              </div>
-              <input
-                type="range"
-                min="1"
-                max="10"
-                step="1"
-                value={shootingDays}
-                onChange={(e) => setShootingDays(Number(e.target.value))}
-                className="calc-range-slider"
-                aria-label="Select number of shooting days"
-              />
-              <div className="range-ticks-row">
-                <span>1 Day</span>
-                <span>5 Days</span>
-                <span>10 Days</span>
               </div>
             </div>
 
-            {/* Range 2: Final Deliverables */}
-            <div className="param-block">
-              <div className="param-header-row">
-                <span className="param-title">Final Deliverables</span>
-                <span className="param-value-badge">{deliverables} {deliverables === 1 ? "Deliverable" : "Deliverables"}</span>
+            {/* STEP 3: PRODUCTION QUALITY TIER (Low vs High) */}
+            <div className="config-card-section">
+              <div className="section-head-row">
+                <div className="step-tag-pill">
+                  <span className="step-number">03</span>
+                  <span className="step-label">Quality Package</span>
+                </div>
+                <span className="section-tip">Select gear package & crew tier</span>
               </div>
-              <input
-                type="range"
-                min="1"
-                max="15"
-                step="1"
-                value={deliverables}
-                onChange={(e) => setDeliverables(Number(e.target.value))}
-                className="calc-range-slider"
-                aria-label="Select number of final deliverables"
-              />
-              <div className="range-ticks-row">
-                <span>1 Cut</span>
-                <span>7 Cuts</span>
-                <span>15 Cuts</span>
-              </div>
-            </div>
 
-            {/* Toggle 3: Production Quality (STRICTLY LOW & HIGH PER USER REQUEST) */}
-            <div className="param-block">
-              <div className="param-header-row">
-                <span className="param-title">Production Quality Tier</span>
-                <span className="param-sub-hint">Low & High Tiers</span>
-              </div>
-              <div className="quality-dual-grid">
+              <div className="quality-package-grid">
+                {/* Standard / Agile Tier */}
                 <button
                   type="button"
                   onClick={() => setQuality("low")}
-                  className={`quality-btn ${quality === "low" ? "active" : ""}`}
+                  className={`package-tier-btn ${quality === "low" ? "selected" : ""}`}
                 >
-                  <div className="quality-header">
-                    <span className="quality-name">STANDARD / AGILE</span>
-                    <span className="quality-tag">LOW</span>
+                  <div className="package-top-bar">
+                    <div className="package-name-group">
+                      <span className="package-title">Standard / Agile Package</span>
+                      <span className="package-level-tag low">Standard Tier</span>
+                    </div>
+                    <div className="package-check-indicator">
+                      {quality === "low" && <Check size={14} color="#ffffff" strokeWidth={3} />}
+                    </div>
                   </div>
-                  <span className="quality-desc">Lean crew, agile 4K setup & rapid delivery</span>
+                  <p className="package-summary">
+                    Optimized for rapid turnaround, digital marketing & social-first campaigns with a lean 4K production crew.
+                  </p>
+                  <div className="package-equipment-pills">
+                    <span>4K Cinema Rig</span>
+                    <span>Agile Sound & Light</span>
+                    <span>Fast Cut</span>
+                  </div>
                 </button>
 
+                {/* Cinema Master Tier */}
                 <button
                   type="button"
                   onClick={() => setQuality("high")}
-                  className={`quality-btn ${quality === "high" ? "active" : ""}`}
+                  className={`package-tier-btn ${quality === "high" ? "selected" : ""}`}
                 >
-                  <div className="quality-header">
-                    <span className="quality-name">CINEMA MASTER</span>
-                    <span className="quality-tag">HIGH</span>
+                  <div className="package-top-bar">
+                    <div className="package-name-group">
+                      <span className="package-title">Cinema Master Package</span>
+                      <span className="package-level-tag high">Master Tier</span>
+                    </div>
+                    <div className="package-check-indicator">
+                      {quality === "high" && <Check size={14} color="#ffffff" strokeWidth={3} />}
+                    </div>
                   </div>
-                  <span className="quality-desc">Arri/Red package, master anamorphics & full crew</span>
+                  <p className="package-summary">
+                    Broadcast TVC & high-end corporate film standard with Master D.O.P., heavy lighting truck, and complete cinema crew.
+                  </p>
+                  <div className="package-equipment-pills">
+                    <span>Arri / RED Anamorphic</span>
+                    <span>Full Gaffer & Grip</span>
+                    <span>ACES Color</span>
+                  </div>
                 </button>
               </div>
             </div>
 
-            {/* Multi-Select: Post-Production Add-ons */}
-            <div className="param-block" style={{ marginBottom: 0 }}>
-              <div className="param-header-row">
-                <span className="param-title">Post-Production Craft</span>
-                <span className="param-sub-hint">Select Multiple</span>
+            {/* STEP 4: POST-PRODUCTION & STUDIO CRAFT */}
+            <div className="config-card-section" style={{ borderBottom: "none", paddingBottom: 0, marginBottom: 0 }}>
+              <div className="section-head-row">
+                <div className="step-tag-pill">
+                  <span className="step-number">04</span>
+                  <span className="step-label">Post-Production Craft</span>
+                </div>
+                <span className="section-tip">Select all specialized finishing crafts required</span>
               </div>
-              <div className="post-pills-wrap">
+
+              <div className="craft-pills-flow">
                 {postOptions.map((opt) => {
                   const isSelected = selectedPost.includes(opt.id);
                   return (
@@ -357,10 +505,13 @@ export default function ProjectCalculatorSection() {
                       type="button"
                       key={opt.id}
                       onClick={() => togglePostOption(opt.id)}
-                      className={`post-pill ${isSelected ? "selected" : ""}`}
+                      className={`craft-option-pill ${isSelected ? "selected" : ""}`}
                     >
-                      <span className="pill-dot" />
-                      <span>{opt.label}</span>
+                      <div className="craft-pill-check">
+                        {isSelected ? <Check size={12} color="#ffffff" strokeWidth={3} /> : <Plus size={12} />}
+                      </div>
+                      <span className="craft-pill-title">{opt.label}</span>
+                      <span className="craft-pill-price">{opt.priceTag}</span>
                     </button>
                   );
                 })}
@@ -368,116 +519,159 @@ export default function ProjectCalculatorSection() {
             </div>
           </div>
 
-          {/* COLUMN 3: Starting Estimate & Booking Trigger */}
-          <div className="calc-col-summary reveal-from-right delay-300">
-            <span className="col-eyebrow-label">Starting Estimate</span>
+          {/* ================================================================= */}
+          {/* ZONE B: FLOATING STUDIO QUOTATION TICKET (RIGHT 36%)              */}
+          {/* ================================================================= */}
+          <div className="ticket-summary-column">
+            <div className="floating-studio-ticket">
+              {/* Ticket Top Ribbon */}
+              <div className="ticket-top-ribbon">
+                <div className="ticket-seal">
+                  <Sparkles size={14} color="#E63946" />
+                  <span>Devaj Production Ticket</span>
+                </div>
+                <span className="ticket-live-badge">Live Quote</span>
+              </div>
 
-            <div className="estimate-number-box">
-              <span className="estimate-currency-val">{formattedEstimate}</span>
-              <p className="estimate-disclaimer">
-                Transparent starting estimate based on your parameters. Final quote calibrated in creative consultation.
-              </p>
+              {/* Primary Estimated Investment */}
+              <div className="ticket-investment-display">
+                <span className="investment-label">Estimated Production Investment</span>
+                <div className="investment-amount-row">
+                  <span className="investment-amount-val">{formattedEstimate}</span>
+                </div>
+                <p className="investment-subtext">
+                  Transparent starting estimate based on calibrated days & deliverable requirements.
+                </p>
+              </div>
+
+              {/* Configured Parameters Breakdown */}
+              <div className="ticket-spec-list">
+                <div className="spec-row">
+                  <span className="spec-key">Creative House</span>
+                  <span className="spec-val house-badge">
+                    {selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"}
+                  </span>
+                </div>
+
+                <div className="spec-row">
+                  <span className="spec-key">Shooting Schedule</span>
+                  <span className="spec-val">
+                    <strong>{shootingDays}</strong> {shootingDays === 1 ? "Day on set" : "Days on set"}
+                  </span>
+                </div>
+
+                <div className="spec-row">
+                  <span className="spec-key">Master Deliverables</span>
+                  <span className="spec-val">
+                    <strong>{deliverables}</strong> {deliverables === 1 ? "Final Video Cut" : "Final Video Cuts"}
+                  </span>
+                </div>
+
+                <div className="spec-row">
+                  <span className="spec-key">Package Tier</span>
+                  <span className="spec-val">
+                    {quality === "low" ? "Standard / Agile" : "Cinema Master Tier"}
+                  </span>
+                </div>
+
+                <div className="spec-row" style={{ alignItems: "flex-start" }}>
+                  <span className="spec-key">Finishing Craft</span>
+                  <span className="spec-val craft-tags">
+                    {selectedPost.length === 0
+                      ? "Base Cut Only"
+                      : selectedPost
+                          .map((id) => postOptions.find((p) => p.id === id)?.label)
+                          .filter(Boolean)
+                          .join(", ")}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Trigger Buttons */}
+              <div className="ticket-action-buttons">
+                <button
+                  type="button"
+                  onClick={handleProceedToPayment}
+                  className="ticket-primary-cta"
+                >
+                  <span>Proceed to Booking & Brief</span>
+                  <ArrowRight size={18} />
+                </button>
+
+                <a
+                  href={`https://wa.me/201014049339?text=${encodeURIComponent(
+                    `Hello Devaj Group, I ran the Project Calculator for ${
+                      selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"
+                    }: ${shootingDays} Shoot Days, ${deliverables} Deliverables, ${quality.toUpperCase()} Tier. Estimate: ${formattedEstimate}. I would like to schedule a producer consultation.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ticket-whatsapp-cta"
+                >
+                  <MessageSquare size={16} />
+                  <span>Direct Producer WhatsApp Call</span>
+                </a>
+              </div>
+
+              {/* Trust & Guarantee Notes */}
+              <div className="ticket-guarantee-box">
+                <div className="guarantee-bullet">
+                  <ShieldCheck size={14} color="#128C7E" />
+                  <span>Free executive producer consultation included</span>
+                </div>
+                <div className="guarantee-bullet">
+                  <CheckCircle2 size={14} color="#128C7E" />
+                  <span>Non-binding estimate • Scope calibrated before contracts</span>
+                </div>
+              </div>
             </div>
-
-            {/* Selected Summary Details */}
-            <div className="estimate-breakdown-card">
-              <div className="breakdown-row">
-                <span>Selected House:</span>
-                <strong>{selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"}</strong>
-              </div>
-              <div className="breakdown-row">
-                <span>Shooting Schedule:</span>
-                <strong>{shootingDays} {shootingDays === 1 ? "Day" : "Days"}</strong>
-              </div>
-              <div className="breakdown-row">
-                <span>Deliverables:</span>
-                <strong>{deliverables} Cuts</strong>
-              </div>
-              <div className="breakdown-row">
-                <span>Quality Tier:</span>
-                <strong>{quality === "low" ? "Standard (Low)" : "Cinema Master (High)"}</strong>
-              </div>
-            </div>
-
-            {/* Action CTA Button */}
-            <button
-              type="button"
-              onClick={handleProceedToPayment}
-              className="calc-submit-btn"
-            >
-              <span>Proceed to Booking & Payment</span>
-              <ArrowRight size={18} />
-            </button>
-
-            <a
-              href={`https://wa.me/201014049339?text=${encodeURIComponent(
-                `Hello Devaj Group, I ran the Project Calculator for ${
-                  selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"
-                }: ${shootingDays} Days, ${deliverables} Deliverables, ${quality.toUpperCase()} Quality. Estimate: ${formattedEstimate}. I would like to schedule a call.`
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="calc-whatsapp-btn"
-            >
-              <MessageSquare size={16} />
-              <span>Inquire via WhatsApp</span>
-            </a>
           </div>
         </div>
       </div>
 
       {/* =================================================================== */}
-      {/* 3. PAYMENT & BOOKING MODAL SCREEN (Screen للـ Payment)              */}
+      {/* 3. PAYMENT & BOOKING MODAL SCREEN                                   */}
       {/* =================================================================== */}
       {paymentModalOpen && (
-        <div
-          className="payment-modal-backdrop"
-          onClick={() => setPaymentModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="payment-modal-card"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Close Button */}
+        <div className="payment-modal-backdrop" onClick={() => setPaymentModalOpen(false)}>
+          <div className="payment-modal-card" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
             <button
               type="button"
               className="payment-close-btn"
               onClick={() => setPaymentModalOpen(false)}
-              aria-label="Close Payment Modal"
+              aria-label="Close modal"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
+            {/* Modal Flow Step 1: Form & Method Selection */}
             {paymentStep === "form" && (
-              <div>
-                {/* Header */}
+              <div className="payment-form-view">
                 <div className="payment-modal-header">
-                  <div className="payment-eyebrow">
-                    <ShieldCheck size={16} color="#25D366" />
-                    <span>Secure Booking & Project Deposit</span>
-                  </div>
-                  <h3 className="payment-modal-title">Lock Your Production Crew & Dates</h3>
+                  <span className="payment-eyebrow">
+                    <CheckCircle2 size={15} />
+                    <span>Instant Studio Alignment</span>
+                  </span>
+                  <h3 className="payment-modal-title">Book Production Brief</h3>
                   <p className="payment-modal-sub">
-                    Reserve production soundstages and camera crew packages for{" "}
-                    <strong>{selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"}</strong>.
+                    Lock in your starting parameters with <strong>Devaj Group</strong>. Our production desk will contact you within 2 hours to confirm call sheets and creative alignment.
                   </p>
                 </div>
 
                 {/* Estimate Summary Pill */}
                 <div className="payment-summary-pill">
                   <div>
-                    <span className="summary-label">Estimated Total:</span>
+                    <span className="summary-label">Estimated Production Total:</span>
                     <span className="summary-amount">{formattedEstimate}</span>
                   </div>
-                  <span className="summary-details-chip">
-                    {shootingDays} Days • {deliverables} Deliverables • {quality.toUpperCase()} Tier
-                  </span>
+                  <div className="summary-details-chip">
+                    {selectedHouse === "productions" ? "Devaj Productions" : "Devaj Films"} • {shootingDays} Days • {deliverables} Deliverables
+                  </div>
                 </div>
 
-                {/* Booking Form */}
-                <form onSubmit={handleConfirmBooking} className="payment-form">
+                {/* Booking Contact Form */}
+                <form onSubmit={handleConfirmBooking}>
                   <div className="form-fields-grid">
                     <div>
                       <label className="input-label">Full Name *</label>
@@ -492,11 +686,11 @@ export default function ProjectCalculatorSection() {
                     </div>
 
                     <div>
-                      <label className="input-label">Company / Brand *</label>
+                      <label className="input-label">Brand / Company Name *</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Porsche Egypt, Clorox, Brand X"
+                        placeholder="e.g. Porsche Egypt, Eskan Misr..."
                         value={clientForm.company}
                         onChange={(e) => setClientForm({ ...clientForm, company: e.target.value })}
                         className="modal-text-input"
@@ -530,14 +724,14 @@ export default function ProjectCalculatorSection() {
 
                   {/* Payment Method Tabs */}
                   <div className="payment-methods-section">
-                    <label className="input-label">Preferred Payment & Booking Channel:</label>
+                    <label className="input-label">Preferred Booking Channel:</label>
                     <div className="methods-tabs-grid">
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("card")}
                         className={`method-tab-btn ${paymentMethod === "card" ? "active" : ""}`}
                       >
-                        <CreditCard size={18} />
+                        <CreditCard size={17} />
                         <span>Credit / Debit Card</span>
                       </button>
 
@@ -546,7 +740,7 @@ export default function ProjectCalculatorSection() {
                         onClick={() => setPaymentMethod("instapay")}
                         className={`method-tab-btn ${paymentMethod === "instapay" ? "active" : ""}`}
                       >
-                        <Zap size={18} />
+                        <Zap size={17} />
                         <span>InstaPay (Egypt)</span>
                       </button>
 
@@ -555,7 +749,7 @@ export default function ProjectCalculatorSection() {
                         onClick={() => setPaymentMethod("deposit")}
                         className={`method-tab-btn ${paymentMethod === "deposit" ? "active" : ""}`}
                       >
-                        <Building size={18} />
+                        <Building size={17} />
                         <span>50% Wire Deposit</span>
                       </button>
                     </div>
@@ -638,7 +832,7 @@ export default function ProjectCalculatorSection() {
             {paymentStep === "success" && (
               <div className="payment-success-view">
                 <div className="success-icon-badge">
-                  <CheckCircle2 size={46} color="#25D366" />
+                  <CheckCircle2 size={46} color="#128C7E" />
                 </div>
                 <h3 className="success-title">Brief Confirmed & Scheduled!</h3>
                 <span className="success-ref">Booking Ref: {bookingRefNumber}</span>
@@ -679,386 +873,682 @@ export default function ProjectCalculatorSection() {
       )}
 
       {/* =================================================================== */}
-      {/* 4. COMPONENT STYLES & INTERACTIVE PHYSICS                           */}
+      {/* 4. COMPONENT STYLES & LUXURY PHYSICS                                */}
       {/* =================================================================== */}
       <style jsx>{`
-        /* Main 3-Column Glass Layout */
-        .calculator-layout-card {
+        /* Main 2-Zone Layout Grid */
+        .luxury-calculator-grid {
           display: grid;
-          grid-template-columns: 340px 1fr 360px;
-          gap: 32px;
-          background: #ffffff;
+          grid-template-columns: 1fr 440px;
+          gap: 40px;
+          align-items: start;
+        }
+
+        /* Configurator Card Container (Zone A) */
+        .config-builder-column {
+          background: #FFFFFF;
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 28px;
-          padding: 36px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-        }
-
-        .col-eyebrow-label {
-          display: block;
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.78rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.12em;
-          color: rgba(21, 21, 21, 0.5);
-          margin-bottom: 18px;
-        }
-
-        /* Column 1: Houses Toggle Stack */
-        .houses-toggle-stack {
+          padding: 44px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 40px;
         }
 
-        .house-select-btn {
-          text-align: left;
-          padding: 24px;
-          border-radius: 20px;
-          cursor: pointer;
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-          outline: none;
+        .config-card-section {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+          padding-bottom: 36px;
         }
 
-        /* Active House: Crisp, illuminated & distinct */
-        .house-select-btn.active {
-          background: #ffffff;
-          color: #111111;
-          border: 2px solid #E63946;
-          box-shadow: 0 14px 34px rgba(230, 57, 70, 0.15), 0 2px 10px rgba(0, 0, 0, 0.05);
-          transform: scale(1.02);
-          opacity: 1;
-          filter: none;
-        }
-
-        /* Inactive House: Dimmed with frosted blur */
-        .house-select-btn.dimmed {
-          background: #F7F6F2;
-          color: rgba(21, 21, 21, 0.55);
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          opacity: 0.75;
-          filter: none;
-        }
-
-        .house-select-btn.dimmed:hover {
-          opacity: 1;
-          background: #f0eee8;
-        }
-
-        .house-btn-header {
+        .section-head-row {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 12px;
+          flex-wrap: wrap;
+          gap: 12px;
         }
 
-        .house-brand-title {
-          display: flex;
-          align-items: baseline;
-          gap: 6px;
+        .step-tag-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #F7F6F2;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          padding: 6px 14px;
+          border-radius: 9999px;
+        }
+
+        .step-number {
           font-family: var(--font-jakarta), var(--font-sans);
-        }
-
-        .brand-devaj {
-          font-size: 1.55rem;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-          color: #111111;
-        }
-
-        .brand-suffix {
           font-size: 0.75rem;
           font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.12em;
-        }
-
-        .brand-suffix.productions {
           color: #E63946;
         }
 
-        .brand-suffix.films {
-          color: #111111;
-        }
-
-        .house-active-indicator {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(230, 57, 70, 0.1);
-          color: #E63946;
-        }
-
-        .house-select-btn.dimmed .house-active-indicator {
-          background: rgba(0, 0, 0, 0.05);
-          color: rgba(21, 21, 21, 0.4);
-        }
-
-        .house-desc-text {
+        .step-label {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.88rem;
-          line-height: 1.5;
-          margin: 0;
-          color: rgba(21, 21, 21, 0.7);
-        }
-
-        .house-select-btn.active .house-desc-text {
-          color: #111111;
-        }
-
-        /* Column 2: Parameters */
-        .calc-col-params {
-          border-left: 1px solid rgba(0, 0, 0, 0.08);
-          border-right: 1px solid rgba(0, 0, 0, 0.08);
-          padding: 0 32px;
-          display: flex;
-          flex-direction: column;
-          gap: 28px;
-        }
-
-        .param-block {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .param-header-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 12px;
-        }
-
-        .param-title {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.88rem;
+          font-size: 0.8rem;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           color: #111111;
         }
 
-        .param-value-badge {
+        .section-tip {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.95rem;
-          font-weight: 800;
-          color: #E63946;
-          background: rgba(230, 57, 70, 0.08);
-          padding: 4px 12px;
-          border-radius: 9999px;
-          border: 1px solid rgba(230, 57, 70, 0.25);
+          font-size: 0.82rem;
+          color: rgba(21, 21, 21, 0.5);
         }
 
-        .param-sub-hint {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.75rem;
-          color: rgba(21, 21, 21, 0.45);
-          text-transform: uppercase;
+        /* ------------------------------------------------------------- */
+        /* Module 1: Two Houses Dual Grid                                */
+        /* ------------------------------------------------------------- */
+        .houses-dual-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
         }
 
-        /* Custom Slider Styling */
-        .calc-range-slider {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 100%;
-          height: 6px;
-          border-radius: 9999px;
-          background: #e5e3dc;
-          outline: none;
+        .house-tier-card {
+          background: #FAF9F6;
+          border: 1.5px solid rgba(0, 0, 0, 0.07);
+          border-radius: 20px;
+          padding: 26px;
+          text-align: left;
           cursor: pointer;
-          margin-bottom: 8px;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          outline: none;
+          display: flex;
+          flex-direction: column;
         }
 
-        .calc-range-slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
+        .house-tier-card:hover {
+          background: #FFFFFF;
+          border-color: rgba(230, 57, 70, 0.4);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .house-tier-card.selected {
+          background: #FFFFFF;
+          border-color: #E63946;
+          box-shadow: 0 14px 36px rgba(230, 57, 70, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+          transform: translateY(-2px);
+        }
+
+        .tier-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+        }
+
+        .tier-icon-wrap {
+          width: 42px;
+          height: 42px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
+        }
+
+        .tier-icon-wrap.productions {
+          background: rgba(230, 57, 70, 0.08);
+          color: #E63946;
+        }
+
+        .tier-icon-wrap.films {
+          background: rgba(17, 17, 17, 0.08);
+          color: #111111;
+        }
+
+        .tier-radio-indicator {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: #E63946;
-          cursor: pointer;
-          box-shadow: 0 0 10px rgba(230, 57, 70, 0.6), 0 2px 6px rgba(0, 0, 0, 0.2);
-          transition: transform 0.15s ease;
-        }
-
-        .calc-range-slider::-webkit-slider-thumb:hover {
-          transform: scale(1.2);
-        }
-
-        .range-ticks-row {
+          border: 2px solid rgba(0, 0, 0, 0.18);
           display: flex;
-          justify-content: space-between;
-          font-size: 0.72rem;
-          color: rgba(21, 21, 21, 0.45);
-          font-family: var(--font-jakarta), var(--font-sans);
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
         }
 
-        /* Quality Dual Grid: STRICTLY LOW & HIGH */
-        .quality-dual-grid {
+        .house-tier-card.selected .tier-radio-indicator {
+          border-color: #E63946;
+          background: #E63946;
+        }
+
+        .tier-brand-title {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+          margin-bottom: 8px;
+        }
+
+        .tier-brand-name {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: #111111;
+          letter-spacing: -0.02em;
+        }
+
+        .tier-brand-sub {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.78rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+
+        .tier-brand-sub.productions {
+          color: #E63946;
+        }
+
+        .tier-brand-sub.films {
+          color: #111111;
+        }
+
+        .tier-badge {
+          display: inline-block;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: rgba(21, 21, 21, 0.6);
+          margin-bottom: 12px;
+        }
+
+        .tier-description {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.88rem;
+          line-height: 1.5;
+          color: rgba(21, 21, 21, 0.7);
+          margin: 0 0 16px 0;
+          flex-grow: 1;
+        }
+
+        .tier-footer-specs {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.78rem;
+          font-weight: 700;
+          color: rgba(21, 21, 21, 0.55);
+          padding-top: 12px;
+          border-top: 1px dashed rgba(0, 0, 0, 0.08);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* Module 2: Production Scale Sliders                            */
+        /* ------------------------------------------------------------- */
+        .sliders-twin-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 12px;
+          gap: 24px;
         }
 
-        .quality-btn {
+        .slider-control-box {
+          background: #FAF9F6;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          border-radius: 18px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        .slider-title-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .control-label {
+          display: block;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.92rem;
+          font-weight: 700;
+          color: #111111;
+        }
+
+        .control-subtext {
+          display: block;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.75rem;
+          color: rgba(21, 21, 21, 0.5);
+          margin-top: 2px;
+        }
+
+        .counter-stepper-wrap {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #FFFFFF;
+          border: 1px solid rgba(0, 0, 0, 0.09);
+          padding: 4px 6px;
+          border-radius: 9999px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .stepper-btn {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          border: none;
           background: #F7F6F2;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 14px;
-          padding: 14px 16px;
+          color: #111111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .stepper-btn:hover:not(:disabled) {
+          background: #E63946;
+          color: #ffffff;
+        }
+
+        .stepper-btn:disabled {
+          opacity: 0.35;
+          cursor: not-allowed;
+        }
+
+        .stepper-val {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.88rem;
+          font-weight: 800;
+          color: #111111;
+          padding: 0 6px;
+          min-width: 65px;
+          text-align: center;
+        }
+
+        .slider-track-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .studio-range-slider {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 100%;
+          height: 8px;
+          border-radius: 9999px;
+          outline: none;
+          cursor: pointer;
+          transition: background 0.15s ease;
+        }
+
+        .studio-range-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          border: 3px solid #E63946;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 10px rgba(230, 57, 70, 0.4);
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .studio-range-slider::-webkit-slider-thumb:hover {
+          transform: scale(1.15);
+        }
+
+        .slider-milestones {
+          display: flex;
+          justify-content: space-between;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.72rem;
+          color: rgba(21, 21, 21, 0.4);
+          padding: 0 4px;
+        }
+
+        .slider-milestones span.active {
+          color: #E63946;
+          font-weight: 700;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* Module 3: Production Quality Tier Grid                        */
+        /* ------------------------------------------------------------- */
+        .quality-package-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+        }
+
+        .package-tier-btn {
+          background: #FAF9F6;
+          border: 1.5px solid rgba(0, 0, 0, 0.07);
+          border-radius: 18px;
+          padding: 22px;
           text-align: left;
           cursor: pointer;
           transition: all 0.25s ease;
           outline: none;
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 12px;
         }
 
-        .quality-btn:hover {
-          background: #eceae3;
+        .package-tier-btn:hover {
+          background: #FFFFFF;
+          border-color: rgba(230, 57, 70, 0.4);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
         }
 
-        .quality-btn.active {
-          background: rgba(230, 57, 70, 0.06);
+        .package-tier-btn.selected {
+          background: #FFFFFF;
           border-color: #E63946;
-          box-shadow: 0 4px 18px rgba(230, 57, 70, 0.15);
+          box-shadow: 0 12px 30px rgba(230, 57, 70, 0.12);
         }
 
-        .quality-header {
+        .package-top-bar {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-        }
-
-        .quality-name {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.8rem;
-          font-weight: 800;
-          letter-spacing: 0.06em;
-          color: #111111;
-        }
-
-        .quality-tag {
-          font-size: 0.68rem;
-          font-weight: 800;
-          padding: 2px 6px;
-          border-radius: 4px;
-          background: rgba(0, 0, 0, 0.06);
-          color: #111111;
-        }
-
-        .quality-btn.active .quality-tag {
-          background: #E63946;
-          color: #ffffff;
-        }
-
-        .quality-desc {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.75rem;
-          line-height: 1.4;
-          color: rgba(21, 21, 21, 0.65);
-        }
-
-        /* Post-Production Pills */
-        .post-pills-wrap {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .post-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          padding: 8px 14px;
-          border-radius: 9999px;
-          background: #F7F6F2;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          color: rgba(21, 21, 21, 0.75);
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.78rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          outline: none;
-        }
-
-        .post-pill:hover {
-          background: #eae8e1;
-          color: #111111;
-        }
-
-        .post-pill.selected {
-          background: #E63946;
-          border-color: #E63946;
-          color: #ffffff;
-          box-shadow: 0 3px 12px rgba(230, 57, 70, 0.3);
-        }
-
-        .pill-dot {
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background: currentColor;
-        }
-
-        /* Column 3: Estimate & Actions */
-        .calc-col-summary {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-
-        .estimate-number-box {
-          margin-bottom: 24px;
-        }
-
-        .estimate-currency-val {
-          display: block;
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(2.3rem, 3.2vw, 3.1rem);
-          font-weight: 800;
-          color: #111111;
-          letter-spacing: -0.03em;
-          line-height: 1.08;
-          margin-bottom: 12px;
-        }
-
-        .estimate-disclaimer {
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.8rem;
-          line-height: 1.5;
-          color: rgba(21, 21, 21, 0.55);
-          margin: 0;
-        }
-
-        .estimate-breakdown-card {
-          background: #F7F6F2;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 16px;
-          padding: 16px 18px;
-          margin-bottom: 24px;
-          display: flex;
-          flex-direction: column;
+          align-items: flex-start;
           gap: 10px;
         }
 
-        .breakdown-row {
+        .package-name-group {
           display: flex;
-          justify-content: space-between;
-          font-family: var(--font-jakarta), var(--font-sans);
-          font-size: 0.82rem;
-          color: rgba(21, 21, 21, 0.65);
+          flex-direction: column;
+          gap: 4px;
         }
 
-        .breakdown-row strong {
+        .package-title {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.92rem;
+          font-weight: 800;
           color: #111111;
         }
 
-        .calc-submit-btn {
+        .package-level-tag {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.68rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          padding: 2px 8px;
+          border-radius: 6px;
+          width: fit-content;
+        }
+
+        .package-level-tag.low {
+          background: rgba(17, 17, 17, 0.06);
+          color: #111111;
+        }
+
+        .package-level-tag.high {
+          background: rgba(230, 57, 70, 0.1);
+          color: #E63946;
+        }
+
+        .package-check-indicator {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          border: 2px solid rgba(0, 0, 0, 0.18);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
+          flex-shrink: 0;
+        }
+
+        .package-tier-btn.selected .package-check-indicator {
+          border-color: #E63946;
+          background: #E63946;
+        }
+
+        .package-summary {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.82rem;
+          line-height: 1.45;
+          color: rgba(21, 21, 21, 0.65);
+          margin: 0;
+        }
+
+        .package-equipment-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 4px;
+        }
+
+        .package-equipment-pills span {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.72rem;
+          font-weight: 600;
+          background: #FFFFFF;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          padding: 3px 10px;
+          border-radius: 9999px;
+          color: rgba(21, 21, 21, 0.7);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* Module 4: Post-Production Craft Pills                         */
+        /* ------------------------------------------------------------- */
+        .craft-pills-flow {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .craft-option-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 18px;
+          border-radius: 9999px;
+          background: #FAF9F6;
+          border: 1.5px solid rgba(0, 0, 0, 0.07);
+          cursor: pointer;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+          outline: none;
+        }
+
+        .craft-option-pill:hover {
+          background: #FFFFFF;
+          border-color: rgba(230, 57, 70, 0.35);
+          transform: translateY(-1px);
+        }
+
+        .craft-option-pill.selected {
+          background: #FFFFFF;
+          border-color: #E63946;
+          box-shadow: 0 4px 16px rgba(230, 57, 70, 0.12);
+        }
+
+        .craft-pill-check {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(21, 21, 21, 0.4);
+          transition: all 0.2s ease;
+        }
+
+        .craft-option-pill.selected .craft-pill-check {
+          background: #E63946;
+          border-color: #E63946;
+          color: #ffffff;
+        }
+
+        .craft-pill-title {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: #111111;
+        }
+
+        .craft-pill-price {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.72rem;
+          font-weight: 700;
+          color: #E63946;
+          background: rgba(230, 57, 70, 0.08);
+          padding: 2px 7px;
+          border-radius: 9999px;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* ZONE B: FLOATING STUDIO TICKET CARD                           */
+        /* ------------------------------------------------------------- */
+        .ticket-summary-column {
+          position: sticky;
+          top: 110px;
+        }
+
+        .floating-studio-ticket {
+          background: #FFFFFF;
+          border: 1.5px solid rgba(0, 0, 0, 0.08);
+          border-radius: 28px;
+          padding: 34px 30px;
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.07);
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          position: relative;
+        }
+
+        .ticket-top-ribbon {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .ticket-seal {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.78rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #111111;
+        }
+
+        .ticket-live-badge {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.7rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          background: rgba(18, 140, 126, 0.1);
+          color: #128C7E;
+          padding: 3px 10px;
+          border-radius: 9999px;
+          border: 1px solid rgba(18, 140, 126, 0.2);
+        }
+
+        .ticket-investment-display {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .investment-label {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: rgba(21, 21, 21, 0.55);
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+        }
+
+        .investment-amount-row {
+          display: flex;
+          align-items: baseline;
+          gap: 8px;
+        }
+
+        .investment-amount-val {
+          font-family: var(--font-serif);
+          font-size: clamp(2.3rem, 2.8vw, 3.2rem);
+          font-weight: 700;
+          font-style: italic;
+          color: #111111;
+          letter-spacing: -0.03em;
+          line-height: 1.05;
+        }
+
+        .investment-subtext {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.78rem;
+          line-height: 1.45;
+          color: rgba(21, 21, 21, 0.5);
+          margin: 4px 0 0 0;
+        }
+
+        .ticket-spec-list {
+          background: #FAF9F6;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          border-radius: 18px;
+          padding: 18px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .spec-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.82rem;
+        }
+
+        .spec-key {
+          color: rgba(21, 21, 21, 0.55);
+          font-weight: 600;
+          flex-shrink: 0;
+        }
+
+        .spec-val {
+          color: #111111;
+          font-weight: 700;
+          text-align: right;
+        }
+
+        .spec-val.house-badge {
+          color: #E63946;
+        }
+
+        .spec-val.craft-tags {
+          color: rgba(21, 21, 21, 0.8);
+          font-size: 0.78rem;
+          max-width: 220px;
+          line-height: 1.35;
+        }
+
+        .ticket-action-buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .ticket-primary-cta {
           width: 100%;
           display: flex;
           align-items: center;
@@ -1070,21 +1560,20 @@ export default function ProjectCalculatorSection() {
           color: #ffffff;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.95rem;
-          font-weight: 700;
+          font-weight: 800;
           border: none;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           box-shadow: 0 10px 28px rgba(230, 57, 70, 0.35);
-          margin-bottom: 12px;
         }
 
-        .calc-submit-btn:hover {
+        .ticket-primary-cta:hover {
           background: #ff4757;
           transform: translateY(-2px);
           box-shadow: 0 14px 34px rgba(230, 57, 70, 0.5);
         }
 
-        .calc-whatsapp-btn {
+        .ticket-whatsapp-cta {
           width: 100%;
           display: flex;
           align-items: center;
@@ -1092,23 +1581,42 @@ export default function ProjectCalculatorSection() {
           gap: 8px;
           padding: 13px 20px;
           border-radius: 9999px;
-          background: #F7F6F2;
-          border: 1px solid rgba(0, 0, 0, 0.1);
+          background: #FAF9F6;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           color: #111111;
           font-family: var(--font-jakarta), var(--font-sans);
           font-size: 0.88rem;
-          font-weight: 600;
+          font-weight: 700;
           text-decoration: none;
           transition: all 0.25s ease;
         }
 
-        .calc-whatsapp-btn:hover {
-          background: rgba(37, 211, 102, 0.12);
+        .ticket-whatsapp-cta:hover {
+          background: rgba(37, 211, 102, 0.1);
           border-color: #25D366;
           color: #128C7E;
         }
 
-        /* Payment Modal Screen */
+        .ticket-guarantee-box {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding-top: 14px;
+          border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .guarantee-bullet {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: 0.75rem;
+          color: rgba(21, 21, 21, 0.6);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* Payment Modal Styles                                          */
+        /* ------------------------------------------------------------- */
         .payment-modal-backdrop {
           position: fixed;
           inset: 0;
@@ -1270,7 +1778,6 @@ export default function ProjectCalculatorSection() {
           background: #ffffff;
         }
 
-        /* Payment Methods */
         .payment-methods-section {
           margin-bottom: 28px;
         }
@@ -1397,7 +1904,6 @@ export default function ProjectCalculatorSection() {
           color: rgba(21, 21, 21, 0.55);
         }
 
-        /* Processing View */
         .payment-processing-view {
           display: flex;
           flex-direction: column;
@@ -1431,7 +1937,6 @@ export default function ProjectCalculatorSection() {
           margin: 0;
         }
 
-        /* Success View */
         .payment-success-view {
           display: flex;
           flex-direction: column;
@@ -1540,33 +2045,37 @@ export default function ProjectCalculatorSection() {
         @keyframes modalScaleUp {
           from {
             transform: scale(0.95);
-            opacity: 0;
           }
           to {
             transform: scale(1);
-            opacity: 1;
           }
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1200px) {
-          .calculator-layout-card {
+        /* ------------------------------------------------------------- */
+        /* Responsive Breakpoints                                        */
+        /* ------------------------------------------------------------- */
+        @media (max-width: 1280px) {
+          .luxury-calculator-grid {
             grid-template-columns: 1fr;
-            padding: 30px 24px;
           }
-          .calc-col-params {
-            border-left: none;
-            border-right: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 28px 0;
+          .ticket-summary-column {
+            position: static;
           }
         }
 
         @media (max-width: 768px) {
-          .form-fields-grid {
+          .config-builder-column {
+            padding: 24px 20px;
+          }
+          .houses-dual-grid,
+          .sliders-twin-grid,
+          .quality-package-grid {
             grid-template-columns: 1fr;
           }
+          .floating-studio-ticket {
+            padding: 26px 20px;
+          }
+          .form-fields-grid,
           .methods-tabs-grid {
             grid-template-columns: 1fr;
           }
