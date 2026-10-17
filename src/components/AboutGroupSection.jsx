@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowUpRight, Film, Clapperboard, Award, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Film, Clapperboard, Award } from "lucide-react";
 
 export default function AboutGroupSection() {
   const [inView, setInView] = useState(false);
@@ -15,7 +15,7 @@ export default function AboutGroupSection() {
         }
       },
       {
-        threshold: 0.12,
+        threshold: 0.1,
         rootMargin: "0px 0px -40px 0px",
       }
     );
@@ -41,22 +41,23 @@ export default function AboutGroupSection() {
         borderTopRightRadius: "52px",
         boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.45), 0 -12px 30px rgba(0, 0, 0, 0.25)",
         borderTop: "1px solid rgba(255, 255, 255, 0.6)",
-        padding: "130px 0 125px",
+        padding: "135px 0 130px",
         overflow: "hidden",
       }}
     >
       <div
         style={{
-          maxWidth: "1560px",
+          maxWidth: "1580px",
           margin: "0 auto",
           padding: "0 40px",
         }}
       >
         {/* =================================================================== */}
-        {/* TWO-COLUMN EDITORIAL SPLIT (Who We Are Narrative + Studio Visual)  */}
+        {/* TWO-COLUMN EDITORIAL SPLIT (Text & HQ Building Visual)              */}
+        {/* Mobile: Image appears first (order: 1), Text appears second (order: 2) */}
         {/* =================================================================== */}
         <div className="about-split-grid">
-          {/* Left Column: Brand Story & Manifesto (Staggered Line-by-Line Reveal) */}
+          {/* 1. Content Column (Staggered Line-by-Line Reveal from Left) */}
           <div className="about-content-col">
             {/* Line 1: Eyebrow Pill */}
             <div className={`about-anim-item delay-1 ${inView ? "is-in-view" : ""}`}>
@@ -68,31 +69,33 @@ export default function AboutGroupSection() {
               </div>
             </div>
 
-            {/* Line 2: Editorial Serif Headline */}
+            {/* Line 2: Editorial Dual-Typography Headline matching reference image */}
             <div className={`about-anim-item delay-2 ${inView ? "is-in-view" : ""}`}>
               <h2 className="about-headline">
-                One group, two creative houses united under one cinematic vision
-                <span className="headline-accent-dot">.</span>
+                <span className="headline-serif-part">One group, two creative houses</span>
+                <span className="headline-sans-part">
+                  united under one cinematic vision<span className="headline-accent-dot">.</span>
+                </span>
               </h2>
             </div>
 
-            {/* Line 3: Lead Paragraph with Custom Typography Badges */}
+            {/* Line 3: Refined Lead Narrative */}
             <div className={`about-anim-item delay-3 ${inView ? "is-in-view" : ""}`}>
               <p className="about-lead-paragraph">
-                We are <strong className="brand-accent-name">Devaj Group</strong> — an independent media production group built around two autonomous, highly specialized creative houses: <span className="house-inline-tag productions-tag">Devaj Productions</span> and <span className="house-inline-tag films-tag">Devaj Films</span>. Together, we cover the complete journey of visual content from the first frame of an idea to the final cut.
+                We are <strong className="brand-accent-name">Devaj Group</strong> — an independent media production group built around two autonomous, highly specialized creative houses: <span className="house-badge red-badge">Devaj Productions</span> and <span className="house-badge dark-badge">Devaj Films</span>.
               </p>
             </div>
 
-            {/* Line 4: Body Narrative with Left Accent Border */}
+            {/* Line 4: Narrative Accent Callout */}
             <div className={`about-anim-item delay-4 ${inView ? "is-in-view" : ""}`}>
               <div className="about-editorial-callout">
                 <p className="about-body-paragraph">
-                  Whether engineering agile, conversion-driven digital commercials for modern brands or directing large-scale corporate documentaries and TVCs for enterprise institutions, our teams combine cinematic artistry with high-speed commercial execution.
+                  Covering the complete journey of visual storytelling from the first frame of an idea to the final cut. Whether engineering high-converting commercial reels or directing enterprise TVCs and brand documentaries, our teams fuse cinematic optical mastery with commercial execution speed.
                 </p>
               </div>
             </div>
 
-            {/* Three Brand Pillars - Staggered Lines 5, 6, 7 */}
+            {/* Three Brand Pillars - Lines 5, 6, 7 */}
             <div className="about-pillars-grid">
               {/* Pillar 01 */}
               <div className={`about-anim-item delay-5 ${inView ? "is-in-view" : ""}`}>
@@ -103,10 +106,10 @@ export default function AboutGroupSection() {
                   <div className="pillar-details">
                     <div className="pillar-header-row">
                       <h4 className="pillar-title">Two Specialized Houses</h4>
-                      <span className="pillar-badge-tag">Dual Creative Engine</span>
+                      <span className="pillar-badge-tag">Dual Engine</span>
                     </div>
                     <p className="pillar-desc">
-                      <strong className="desc-highlight">Devaj Productions</strong> for agile commercial reels &amp; <strong className="desc-highlight">Devaj Films</strong> for enterprise cinema.
+                      <strong>Devaj Productions</strong> for agile commercial reels &amp; <strong>Devaj Films</strong> for enterprise cinema.
                     </p>
                   </div>
                   <div className="pillar-hover-arrow">
@@ -124,10 +127,10 @@ export default function AboutGroupSection() {
                   <div className="pillar-details">
                     <div className="pillar-header-row">
                       <h4 className="pillar-title">End-to-End Delivery</h4>
-                      <span className="pillar-badge-tag">Full In-House Pipeline</span>
+                      <span className="pillar-badge-tag">Full Pipeline</span>
                     </div>
                     <p className="pillar-desc">
-                      Complete pipeline: scriptwriting, casting, multi-cam soundstages, master color grading &amp; audio engineering.
+                      Complete in-house pipeline: scriptwriting, casting, soundstages, color grading &amp; audio master.
                     </p>
                   </div>
                   <div className="pillar-hover-arrow">
@@ -145,7 +148,7 @@ export default function AboutGroupSection() {
                   <div className="pillar-details">
                     <div className="pillar-header-row">
                       <h4 className="pillar-title">Proven Market Trust</h4>
-                      <span className="pillar-badge-tag">Tier-1 Authority</span>
+                      <span className="pillar-badge-tag">Tier-1 Clients</span>
                     </div>
                     <p className="pillar-desc">
                       Trusted partner to industry leaders including <strong>Porsche Egypt</strong>, <strong>Clorox</strong>, and <strong>Eskan Misr</strong>.
@@ -158,7 +161,7 @@ export default function AboutGroupSection() {
               </div>
             </div>
 
-            {/* Line 8: CTA Action Buttons */}
+            {/* Line 8: Action Buttons */}
             <div className={`about-anim-item delay-8 ${inView ? "is-in-view" : ""}`}>
               <div className="about-cta-row">
                 <a href="#houses" className="about-cta-primary">
@@ -172,17 +175,17 @@ export default function AboutGroupSection() {
             </div>
           </div>
 
-          {/* Right Column: Studio Visual Card (Slides In Smoothly from Right) */}
+          {/* 2. Visual Column: Larger Devaj Headquarters Building (Slides from Right) */}
           <div className={`about-visual-col ${inView ? "is-in-view" : ""}`}>
             <div className="about-image-card">
               <img
-                src="/images/devaj-studio.jpg"
-                alt="Devaj Group Film Production Studio in Cairo"
+                src="/images/devaj-hq.jpg"
+                alt="Devaj Group Official Corporate Headquarters in Cairo"
                 className="about-studio-image"
               />
               <div className="about-image-overlay" />
 
-              {/* Floating Top Frosted Badge with Transparent Logo */}
+              {/* Top Floating Badge */}
               <div className="about-logo-badge">
                 <img
                   src="/images/devaj-logo.png"
@@ -190,8 +193,8 @@ export default function AboutGroupSection() {
                   className="about-badge-logo-img"
                 />
                 <div className="badge-text-box">
-                  <span className="badge-title">Devaj Group HQ</span>
-                  <span className="badge-subtitle">Cairo Production Soundstage</span>
+                  <span className="badge-title">Devaj Group Headquarters</span>
+                  <span className="badge-subtitle">Cairo Production Soundstages &amp; Creative Campus</span>
                 </div>
               </div>
 
@@ -200,7 +203,7 @@ export default function AboutGroupSection() {
                 <div className="status-live-dot" />
                 <div>
                   <span className="tag-headline">From First Frame to Final Cut</span>
-                  <span className="tag-sub">Arri &amp; Red Cinema Optics // Multi-Cam Soundstages</span>
+                  <span className="tag-sub">Arri &amp; Red Optics // Dedicated Editing &amp; Foley Suites</span>
                 </div>
               </div>
             </div>
@@ -209,17 +212,17 @@ export default function AboutGroupSection() {
       </div>
 
       {/* =================================================================== */}
-      {/* COMPONENT STYLES & STAGGERED SCROLL ANIMATIONS                      */}
+      {/* COMPONENT STYLES                                                    */}
       {/* =================================================================== */}
       <style jsx>{`
         .about-split-grid {
           display: grid;
-          grid-template-columns: 1.18fr 0.92fr;
-          gap: 72px;
+          grid-template-columns: 1fr 1.08fr;
+          gap: 64px;
           align-items: center;
         }
 
-        /* Staggered Scroll Reveal System (Text line by line from Left, Image from Right) */
+        /* Staggered Scroll Animations (Text from Left, Image from Right) */
         .about-anim-item {
           opacity: 0;
           transform: translateX(-48px);
@@ -242,7 +245,7 @@ export default function AboutGroupSection() {
         .delay-7 { transition-delay: 0.92s; }
         .delay-8 { transition-delay: 1.06s; }
 
-        /* Right Column Image Slides In From Right */
+        /* Right Column Image Card (Slides from Right) */
         .about-visual-col {
           opacity: 0;
           transform: translateX(64px);
@@ -256,7 +259,7 @@ export default function AboutGroupSection() {
           transform: translateX(0);
         }
 
-        /* Eyebrow Pill Tag */
+        /* Eyebrow Pill */
         .about-eyebrow-pill {
           display: inline-flex;
           align-items: center;
@@ -300,84 +303,96 @@ export default function AboutGroupSection() {
           color: #E63946;
         }
 
-        /* Headline Styling */
+        /* Headline: Dual-Typography matching reference image */
         .about-headline {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin: 0 0 24px 0;
+          line-height: 1.12;
+        }
+
+        .headline-serif-part {
           font-family: var(--font-serif);
-          font-size: clamp(2.3rem, 3.8vw, 3.6rem);
-          line-height: 1.14;
+          font-size: clamp(2.3rem, 3.6vw, 3.5rem);
+          font-weight: 500;
+          font-style: normal;
           letter-spacing: -0.025em;
           color: #111111;
-          font-weight: 700;
-          font-style: italic;
-          margin: 0 0 24px 0;
+        }
+
+        .headline-sans-part {
+          font-family: var(--font-jakarta), var(--font-sans);
+          font-size: clamp(2.2rem, 3.4vw, 3.3rem);
+          font-weight: 800;
+          font-style: normal;
+          letter-spacing: -0.035em;
+          color: #151515;
         }
 
         .headline-accent-dot {
           color: #E63946;
-          font-style: normal;
         }
 
         /* Lead Paragraph */
         .about-lead-paragraph {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(1.06rem, 1.2vw, 1.18rem);
+          font-size: clamp(1.05rem, 1.18vw, 1.16rem);
           line-height: 1.72;
           color: #242424;
-          margin-bottom: 22px;
+          margin-bottom: 20px;
         }
 
         .brand-accent-name {
           color: #111111;
           font-weight: 800;
-          letter-spacing: -0.01em;
         }
 
-        .house-inline-tag {
+        .house-badge {
           display: inline-block;
           padding: 2px 10px;
           border-radius: 8px;
           font-weight: 700;
-          font-size: 0.95em;
+          font-size: 0.94em;
           line-height: 1.4;
-          vertical-align: baseline;
           letter-spacing: -0.01em;
-          transition: all 0.2s ease;
+          vertical-align: baseline;
         }
 
-        .productions-tag {
+        .red-badge {
           background: rgba(230, 57, 70, 0.08);
           color: #C92A37;
           border: 1px solid rgba(230, 57, 70, 0.22);
         }
 
-        .films-tag {
+        .dark-badge {
           background: rgba(17, 17, 17, 0.06);
           color: #111111;
           border: 1px solid rgba(17, 17, 17, 0.16);
         }
 
-        /* Editorial Quote Bar */
+        /* Narrative Callout */
         .about-editorial-callout {
           position: relative;
           padding: 4px 0 4px 20px;
           border-left: 3px solid #E63946;
-          margin-bottom: 34px;
+          margin-bottom: 32px;
         }
 
         .about-body-paragraph {
           font-family: var(--font-jakarta), var(--font-sans);
-          font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+          font-size: clamp(0.95rem, 1.04vw, 1.02rem);
           line-height: 1.68;
           color: rgba(21, 21, 21, 0.72);
           margin: 0;
         }
 
-        /* Three Brand Pillars - Refined Luxury Cards */
+        /* Pillars Grid */
         .about-pillars-grid {
           display: flex;
           flex-direction: column;
           gap: 14px;
-          margin-bottom: 38px;
+          margin-bottom: 36px;
         }
 
         .about-pillar-card {
@@ -399,7 +414,6 @@ export default function AboutGroupSection() {
           box-shadow: 0 12px 32px rgba(230, 57, 70, 0.08), 0 4px 14px rgba(0, 0, 0, 0.04);
         }
 
-        /* High-End Icon Box */
         .pillar-icon-box {
           width: 48px;
           height: 48px;
@@ -460,11 +474,6 @@ export default function AboutGroupSection() {
           line-height: 1.5;
           color: rgba(21, 21, 21, 0.65);
           margin: 0;
-        }
-
-        .desc-highlight {
-          color: #111111;
-          font-weight: 700;
         }
 
         .pillar-hover-arrow {
@@ -542,14 +551,16 @@ export default function AboutGroupSection() {
           transform: translateY(-2px);
         }
 
-        /* Right Column Visual Card */
+        /* Large Building Image Card */
         .about-image-card {
           position: relative;
-          border-radius: 32px;
+          border-radius: 36px;
           overflow: hidden;
-          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.16), 0 8px 24px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 35px 80px rgba(0, 0, 0, 0.18), 0 10px 30px rgba(0, 0, 0, 0.1);
           aspect-ratio: 4 / 3.4;
-          background: #ffffff;
+          min-height: 580px;
+          width: 100%;
+          background: #111111;
           border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
@@ -562,7 +573,7 @@ export default function AboutGroupSection() {
         }
 
         .about-image-card:hover .about-studio-image {
-          transform: scale(1.04);
+          transform: scale(1.03);
         }
 
         .about-image-overlay {
@@ -570,22 +581,22 @@ export default function AboutGroupSection() {
           inset: 0;
           background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.25) 0%,
-            transparent 45%,
-            rgba(0, 0, 0, 0.75) 100%
+            rgba(0, 0, 0, 0.2) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.7) 100%
           );
         }
 
         .about-logo-badge {
           position: absolute;
-          top: 22px;
-          left: 22px;
+          top: 24px;
+          left: 24px;
           display: flex;
           align-items: center;
           gap: 12px;
           padding: 10px 18px;
           border-radius: 9999px;
-          background: rgba(18, 18, 18, 0.7);
+          background: rgba(18, 18, 18, 0.75);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -621,15 +632,15 @@ export default function AboutGroupSection() {
 
         .about-bottom-tag {
           position: absolute;
-          bottom: 22px;
-          left: 22px;
-          right: 22px;
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
           display: flex;
           align-items: center;
           gap: 12px;
           padding: 14px 20px;
           border-radius: 20px;
-          background: rgba(18, 18, 18, 0.8);
+          background: rgba(18, 18, 18, 0.82);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border: 1px solid rgba(255, 255, 255, 0.16);
@@ -660,20 +671,37 @@ export default function AboutGroupSection() {
           display: block;
         }
 
+        /* Responsive Breakpoints & Mobile Ordering */
         @media (max-width: 1024px) {
           .about-split-grid {
-            grid-template-columns: 1fr;
-            gap: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
           }
+
+          /* USER SPECIFIC REQUIREMENT: Image appears FIRST on phones, then Text! */
+          .about-visual-col {
+            order: 1;
+            width: 100%;
+          }
+
+          .about-content-col {
+            order: 2;
+            width: 100%;
+          }
+
           .about-image-card {
-            max-width: 600px;
-            margin: 0 auto;
+            min-height: 420px;
+            aspect-ratio: 16 / 10;
           }
         }
 
         @media (max-width: 768px) {
-          .about-headline {
-            font-size: 2.1rem;
+          .headline-serif-part {
+            font-size: 2rem;
+          }
+          .headline-sans-part {
+            font-size: 1.9rem;
           }
           .about-logo-badge {
             top: 14px;
@@ -689,6 +717,10 @@ export default function AboutGroupSection() {
           .about-pillar-card {
             padding: 14px 18px;
             gap: 14px;
+          }
+          .about-image-card {
+            min-height: 320px;
+            border-radius: 24px;
           }
         }
       `}</style>

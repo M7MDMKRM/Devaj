@@ -70,6 +70,36 @@ body {
   font-family: var(--font-sans) !important;
 }
 
+/* Monks Signature Dual Typography Heading matching user reference image */
+.hero-monks-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  line-height: 1.05;
+}
+
+.headline-serif-line {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, calc(22px + 4.2vw), 84px);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  color: #eae8e4;
+  line-height: 1.08;
+}
+
+.headline-sans-line {
+  font-family: var(--font-jakarta), var(--font-sans);
+  font-size: clamp(38px, calc(20px + 4.2vw), 82px);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  line-height: 1.08;
+}
+
 .monks-hero-heading {
   font-family: var(--font-serif);
   font-size: clamp(42px, calc(24px + 4.4vw), 86px);
@@ -78,18 +108,6 @@ body {
   color: #eae8e4;
   font-weight: 400;
   margin: 0;
-}
-
-.monks-hero-heading em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  display: inline-block;
-}
-
-.monks-hero-heading strong {
-  font-weight: 700;
 }
 
 .monks-hero-subtitle {

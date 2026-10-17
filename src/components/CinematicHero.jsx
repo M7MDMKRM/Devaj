@@ -134,15 +134,26 @@ export default function CinematicHero({
           textAlign: "center",
         }}
       >
-        {/* Heading: One group , / Two creative Houses (matching font style) */}
-        <h1 className="monks-hero-heading">
-          <em>
-            <strong>One group ,</strong>
-          </em>
-          <br />
-          <em>
-            <strong>Two creative Houses</strong>
-          </em>
+        {/* Eyebrow Label matching reference image "Our Promise" */}
+        <div style={{ marginBottom: "16px" }}>
+          <span
+            style={{
+              fontFamily: "var(--font-jakarta), var(--font-sans)",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.14em",
+              color: "rgba(234, 232, 228, 0.75)",
+            }}
+          >
+            Our Promise
+          </span>
+        </div>
+
+        {/* Heading: Dual Typography matching user's reference image */}
+        <h1 className="hero-monks-headline">
+          <span className="headline-serif-line">One group,</span>
+          <span className="headline-sans-line">Two creative houses</span>
         </h1>
 
         {/* Small subtitle underneath: From the first frame of an idea to the final cut */}
@@ -238,4 +249,3 @@ export default function CinematicHero({
     </header>
   );
 }
-
