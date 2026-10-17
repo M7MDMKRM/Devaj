@@ -39,8 +39,8 @@ export default function AboutGroupSection() {
         marginTop: "-64px",
         borderTopLeftRadius: "52px",
         borderTopRightRadius: "52px",
-        boxShadow: "0 -35px 80px rgba(0, 0, 0, 0.45), 0 -12px 30px rgba(0, 0, 0, 0.25)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.6)",
+        boxShadow: "0 -16px 40px rgba(0, 0, 0, 0.12)",
+        borderTop: "1px solid rgba(255, 255, 255, 0.4)",
         padding: "135px 0 130px",
         overflow: "hidden",
       }}
