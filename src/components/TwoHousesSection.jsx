@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { ArrowUpRight, Film, Clapperboard, Sparkles, ChevronDown, Camera, Award, Flame, Play } from "lucide-react";
 
 export default function TwoHousesSection() {
@@ -51,13 +52,6 @@ export default function TwoHousesSection() {
 
   const handleMouseLeave = () => {
     setActiveHouse(null);
-  };
-
-  const scrollToHouse = (houseId) => {
-    const el = document.getElementById(houseId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (
@@ -183,8 +177,8 @@ export default function TwoHousesSection() {
           {/* --------------------------------------------------------------- */}
           {/* HOUSE 01: DEVAJ PRODUCTIONS (Left Card - Slides from Left)       */}
           {/* --------------------------------------------------------------- */}
-          <div
-            onClick={() => scrollToHouse("devaj-production")}
+          <Link
+            href="/production"
             onMouseEnter={() => handleMouseEnter("production")}
             onMouseLeave={handleMouseLeave}
             className="house-split-card"
@@ -391,13 +385,13 @@ export default function TwoHousesSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* --------------------------------------------------------------- */}
           {/* HOUSE 02: DEVAJ FILMS (Right Card - Slides from Right)           */}
           {/* --------------------------------------------------------------- */}
-          <div
-            onClick={() => scrollToHouse("devaj-film")}
+          <Link
+            href="/films"
             onMouseEnter={() => handleMouseEnter("film")}
             onMouseLeave={handleMouseLeave}
             className="house-split-card"
@@ -604,7 +598,7 @@ export default function TwoHousesSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
