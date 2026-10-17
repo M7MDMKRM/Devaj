@@ -183,6 +183,7 @@ export default function TwoHousesSection() {
             onMouseLeave={handleMouseLeave}
             className="house-split-card"
             style={{
+              textDecoration: "none",
               flex: activeHouse === "production" ? "1.4" : activeHouse === "film" ? "0.65" : "1",
               opacity: cardsVisible ? 1 : 0,
               transform: cardsVisible ? "translateX(0)" : "translateX(-90px)",
@@ -396,6 +397,7 @@ export default function TwoHousesSection() {
             onMouseLeave={handleMouseLeave}
             className="house-split-card"
             style={{
+              textDecoration: "none",
               flex: activeHouse === "film" ? "1.4" : activeHouse === "production" ? "0.65" : "1",
               opacity: cardsVisible ? 1 : 0,
               transform: cardsVisible ? "translateX(0)" : "translateX(90px)",
@@ -602,8 +604,12 @@ export default function TwoHousesSection() {
         </div>
       </div>
 
-      {/* Responsive Stacking Style */}
+      {/* Responsive Stacking Style & Link Reset */}
       <style jsx>{`
+        :global(.house-split-card),
+        :global(.house-split-card *) {
+          text-decoration: none !important;
+        }
         @media (max-width: 900px) {
           :global(.houses-dual-container) {
             flex-direction: column !important;
