@@ -40,6 +40,7 @@ export default function CinematicHero({
     <header
       id="h05-simple-header"
       data-component="h5-simple-header"
+      className="hero-header-section"
       style={{
         position: "relative",
         width: "100%",
@@ -56,6 +57,7 @@ export default function CinematicHero({
       {/* 1. BACKGROUND SIZZLE VIDEO & OVERLAY                                */}
       {/* =================================================================== */}
       <div
+        className="hero-video-wrapper"
         style={{
           position: "absolute",
           inset: 0,
@@ -72,6 +74,7 @@ export default function CinematicHero({
           loop
           muted
           playsInline
+          className="hero-sizzle-video"
           onError={() => {
             if (!videoError) setVideoError(true);
           }}
@@ -246,6 +249,58 @@ export default function CinematicHero({
           </g>
         </svg>
       </div>
+
+      {/* Responsive Full-Bleed Video Mobile Styles */}
+      <style jsx>{`
+        .hero-header-section {
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          min-height: 720px;
+          overflow: hidden;
+          background-color: #1f1f1f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-video-wrapper {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          overflow: hidden;
+        }
+
+        .hero-sizzle-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+          display: block;
+        }
+
+        @media (max-width: 768px) {
+          .hero-header-section {
+            height: 100vh !important;
+            height: 100dvh !important;
+            min-height: 100dvh !important;
+          }
+          .hero-video-wrapper {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+          }
+          .hero-sizzle-video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center !important;
+          }
+        }
+      `}</style>
     </header>
   );
 }
